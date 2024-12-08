@@ -32,7 +32,7 @@ SPELL_IMG = environ.get("SPELL_IMG", "https://te.legra.ph/file/15c1ad448dfe472a5
 # Admins, Channels & Users
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002286266637'))
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '7348205141').split()]
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002390903950 -1002148375787 -1002416164217').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002416164217 -1002470936519').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '1798604396').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 
@@ -67,10 +67,10 @@ PAYMENT_TEXT = environ.get('PAYMENT_TEXT', '<b>- ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟ�
 OWNER_USERNAME = environ.get('OWNER_USERNAME', 'MovieRitik2') # owner username without @
 
 # Links
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/hubrtv_bot')
-CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/hubrtv_bot')
-TUTORIAL = environ.get('TUTORIAL', 'https://t.me/c/2277408829/3')
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'hubrtv_bot') # Support Chat Link Without https:// or @
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/moviehub6904')
+CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/moviehub6904')
+TUTORIAL = environ.get('TUTORIAL', 'https://t.me/moviehub6904')
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'moviehub6904') # Support Chat Link Without https:// or @
 
 # True Or False
 AI_SPELL_CHECK = bool(environ.get('AI_SPELL_CHECK', True))
