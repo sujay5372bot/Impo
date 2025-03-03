@@ -24,10 +24,10 @@ BOT_TOKEN = environ.get('BOT_TOKEN', "")
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 1800))
-PICS = (environ.get('PICS', ''https://graph.org/file/ccb9db43e62a2e524928e.jpg')).split() #SAMPLE PIC
-NOR_IMG = environ.get("NOR_IMG", "'https://graph.org/file/ccb9db43e62a2e524928e.jpg")
+PICS = (environ.get('PICS', ''https://graph.org/file/4e3cb844a124a8fed42d9.jpg')).split() #SAMPLE PIC
+NOR_IMG = environ.get("NOR_IMG", "'https://graph.org/file/4e3cb844a124a8fed42d9.jpg")
 MELCOW_VID = environ.get("MELCOW_VID", "https://t.me/c/2277408829/3")
-SPELL_IMG = environ.get("SPELL_IMG", "https://te.legra.ph/file/15c1ad448dfe472a5cbb8.jpg")
+SPELL_IMG = environ.get("SPELL_IMG", "https://graph.org/file/4e3cb844a124a8fed42d9.jpg")
 
 # Admins, Channels & Users
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001860172104'))
