@@ -67,10 +67,10 @@ PAYMENT_TEXT = environ.get('PAYMENT_TEXT', '<b>- ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟ�
 OWNER_USERNAME = environ.get('OWNER_USERNAME', 'BotMaster55') # owner username without @
 
 # Links
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/+2k_uFnnMboBlY2M1')
-CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/+2k_uFnnMboBlY2M1')
-TUTORIAL = environ.get('TUTORIAL', 'https://t.me/+2k_uFnnMboBlY2M1')
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'BotMaster55') # Support Chat Link Without https:// or @
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/MovieSearchAutoGroup')
+CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/+iXwNgNXtOkk1OTVl')
+TUTORIAL = environ.get('TUTORIAL', 'https://t.me/+iXwNgNXtOkk1OTVl')
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'https://t.me/+aAmjR1AgZmRlOGJl') # Support Chat Link Without https:// or @
 
 # True Or False
 AI_SPELL_CHECK = bool(environ.get('AI_SPELL_CHECK', True))
