@@ -18,9 +18,9 @@ def is_enabled(value, default):
 
 # Bot information
 SESSION = environ.get('SESSION', 'TechVJBot')
-API_ID = int(environ.get('API_ID', '26597768'))
-API_HASH = environ.get('API_HASH', '340f87444e648a712eae77c310648e21')
-BOT_TOKEN = environ.get('BOT_TOKEN', "6658688317:AAEkUInddsDVxtc-pW1rBS_h3sIN4vbqZ_k")
+API_ID = int(environ.get('API_ID', ''))
+API_HASH = environ.get('API_HASH', '')
+BOT_TOKEN = environ.get('BOT_TOKEN', "")
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 1800))
@@ -51,8 +51,8 @@ FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '')).
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
 
 # MongoDB info
-SECONDDB_URI = environ.get('SECONDDB_URI', "mongodb+srv://BotMasterbotdata1:BotMasterbotdata1@cluster092837584.8fmx9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster092837584")
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://BotMasterbotdata2:BotMasterbotdata2@cluster03983746401.rki2c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster03983746401")
+SECONDDB_URI = environ.get('SECONDDB_URI', "")
+DATABASE_URI = environ.get('DATABASE_URI', "")
 DATABASE_NAME = environ.get('DATABASE_NAME', "techvjautobot")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'techvjcollection')
 
