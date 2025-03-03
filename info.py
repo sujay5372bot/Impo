@@ -18,9 +18,9 @@ def is_enabled(value, default):
 
 # Bot information
 SESSION = environ.get('SESSION', 'TechVJBot')
-API_ID = int(environ.get('API_ID', '16688222'))
-API_HASH = environ.get('API_HASH', 'e97fbc548d9fbdbb45c3e51eaed15cc2')
-BOT_TOKEN = environ.get('BOT_TOKEN', "7597869356:AAGifuBkwO5XFuklzDk4bI3exPnupOTUBm0")
+API_ID = int(environ.get('API_ID', '26597768'))
+API_HASH = environ.get('API_HASH', '340f87444e648a712eae77c310648e21')
+BOT_TOKEN = environ.get('BOT_TOKEN', "6658688317:AAEkUInddsDVxtc-pW1rBS_h3sIN4vbqZ_k")
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 1800))
@@ -30,9 +30,9 @@ MELCOW_VID = environ.get("MELCOW_VID", "https://t.me/c/2277408829/3")
 SPELL_IMG = environ.get("SPELL_IMG", "https://te.legra.ph/file/15c1ad448dfe472a5cbb8.jpg")
 
 # Admins, Channels & Users
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002263940357'))
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '7348205141').split()]
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002492003227').split()]
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001860172104'))
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '7348205141 1249672673').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002076498781').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '1798604396').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 
@@ -51,7 +51,7 @@ FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '')).
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
 
 # MongoDB info
-SECONDDB_URI = environ.get('SECONDDB_URI', "mongodb+srv://sujay0000:sujay0000@cluster0.8vnev.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+SECONDDB_URI = environ.get('SECONDDB_URI', "mongodb+srv://BotMasterbotdata1BotMasterbotdata1@cluster092837584.8fmx9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster092837584")
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://sujay5372222222:sujay5372222222@cluster0000007.fdufm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0000007")
 DATABASE_NAME = environ.get('DATABASE_NAME', "techvjautobot")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'techvjcollection')
@@ -64,17 +64,17 @@ REFERAL_COUNT = int(environ.get('REFERAL_COUNT', '10')) # number of referal coun
 REFERAL_PREMEIUM_TIME = environ.get('REFERAL_PREMEIUM_TIME', '1month')
 PAYMENT_QR = environ.get('PAYMENT_QR', 'https://envs.sh/Y9n.jpg')
 PAYMENT_TEXT = environ.get('PAYMENT_TEXT', '<b>- ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟᴀɴs - \n\n- 30ʀs - 1 ᴡᴇᴇᴋ\n- 45ʀs - 1 ᴍᴏɴᴛʜs\n- 100ʀs - 3 ᴍᴏɴᴛʜs\n- 180ʀs - 6 ᴍᴏɴᴛʜs\n\n🎁 ᴘʀᴇᴍɪᴜᴍ ғᴇᴀᴛᴜʀᴇs 🎁\n\n○ ɴᴏ ɴᴇᴇᴅ ᴛᴏ ᴠᴇʀɪғʏ\n○ ɴᴏ ɴᴇᴇᴅ ᴛᴏ ᴏᴘᴇɴ ʟɪɴᴋ\n○ ᴅɪʀᴇᴄᴛ ғɪʟᴇs\n○ ᴀᴅ-ғʀᴇᴇ ᴇxᴘᴇʀɪᴇɴᴄᴇ\n○ ʜɪɢʜ-sᴘᴇᴇᴅ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ\n○ ᴍᴜʟᴛɪ-ᴘʟᴀʏᴇʀ sᴛʀᴇᴀᴍɪɴɢ ʟɪɴᴋs\n○ ᴜɴʟɪᴍɪᴛᴇᴅ ᴍᴏᴠɪᴇs & sᴇʀɪᴇs\n○ ꜰᴜʟʟ ᴀᴅᴍɪɴ sᴜᴘᴘᴏʀᴛ\n○ ʀᴇǫᴜᴇsᴛ ᴡɪʟʟ ʙᴇ ᴄᴏᴍᴘʟᴇᴛᴇᴅ ɪɴ 1ʜ ɪꜰ ᴀᴠᴀɪʟᴀʙʟᴇ\n\n✨ ᴜᴘɪ ɪᴅ - <code>ritikjatain116-1@okhdfcbank</code>\n\nᴄʟɪᴄᴋ ᴛᴏ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴀᴄᴛɪᴠᴇ ᴘʟᴀɴ /myplan\n\n💢 ᴍᴜsᴛ sᴇɴᴅ sᴄʀᴇᴇɴsʜᴏᴛ ᴀғᴛᴇʀ ᴘᴀʏᴍᴇɴᴛ\n\n‼️ ᴀғᴛᴇʀ sᴇɴᴅɪɴɢ ᴀ sᴄʀᴇᴇɴsʜᴏᴛ ᴘʟᴇᴀsᴇ ɢɪᴠᴇ ᴜs sᴏᴍᴇ ᴛɪᴍᴇ ᴛᴏ ᴀᴅᴅ ʏᴏᴜ ɪɴ ᴛʜᴇ ᴘʀᴇᴍɪᴜᴍ send screenshot👉@MovieRitik2</b>')
-OWNER_USERNAME = environ.get('OWNER_USERNAME', 'MovieRitik2') # owner username without @
+OWNER_USERNAME = environ.get('OWNER_USERNAME', 'BotMaster55') # owner username without @
 
 # Links
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/Ritikmove')
-CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/Ritikmove')
-TUTORIAL = environ.get('TUTORIAL', 'https://t.me/Ritikmove')
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'Ritikmove') # Support Chat Link Without https:// or @
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/+2k_uFnnMboBlY2M1')
+CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/+2k_uFnnMboBlY2M1')
+TUTORIAL = environ.get('TUTORIAL', 'https://t.me/+2k_uFnnMboBlY2M1')
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'BotMaster55') # Support Chat Link Without https:// or @
 
 # True Or False
 AI_SPELL_CHECK = bool(environ.get('AI_SPELL_CHECK', True))
-PM_SEARCH = bool(environ.get('PM_SEARCH', True))
+PM_SEARCH = bool(environ.get('PM_SEARCH', False))
 IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', True))
 MAX_BTN = is_enabled((environ.get('MAX_BTN', "True")), True)
 IS_TUTORIAL = bool(environ.get('IS_TUTORIAL', True))
