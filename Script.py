@@ -688,4 +688,53 @@ Also your tutorial will be Added Your Group..."""
 
  👇 কিভাবে যোগ করবেন 👇
 
- মেয়াদ: /set_tutorial ভি
+ মেয়াদ: /set_tutorial ভিডিও লিঙ্ক
+
+এছাড়াও আপনার দল ভিডিও সংগ্রহের প্রশিক্ষণ দেবে..."""
+
+
+    DEVELOPER_TXT = """
+special Thanks To ❤️ Developers -
+
+-Dev 1 [Owner of this bot ]<a href='https://t.me/KingVj01'>VJ</a>
+
+-Dev 2 <a href='https://t.me/Spider_Man_02'>Peter Parker</a>
+
+-Dev 3 <a href='https://t.me/Tony_stark_75>VJ Botz</a>
+
+- Dev 4 <a href='https://t.me/tonystark_botz'>TEAM TEAM TONY STARK</a>
+"""
+
+    RENAME_TXT = """
+🌌 <b><u>HOW TO SET THUMBNAIL</u></b>
+  
+•> /set_thumb - send any picture to automatically set thumbnail.
+•> /del_thumb use this command and delete your old thumbnail.
+•> /view_thumb use this command view your current thumbnail.
+
+📑 <b><u>HOW TO SET CUSTOM CAPTION</u></b>
+
+•> /set_caption - set a custom caption
+•> /see_caption - see your custom caption
+•> /del_caption - delete custom caption
+
+Example:- /set_caption 📕 File Name: {filename}
+💾 Size: {filesize}
+⏰ Duration: {duration}
+
+✏️ <b><u>HOW TO RENAME A FILE</u></b>
+
+•> /rename - send any file and click rename option and type new file name and \nthen select [ document, video, audio ]👈 choice this.
+"""
+
+    STREAM_TXT = """<b><u>HOW TO GET STREAM AND DOWNLOAD LINK :</u>
+
+/stream - ɢᴇᴛ sᴛʀᴇᴀᴍᴀʙʟᴇ ᴀɴᴅ ᴅᴏᴡɴʟᴏᴀᴅᴀʙʟᴇ ʟɪɴᴋ ᴏғ ᴀɴʏ ғɪʟᴇ</b>"""
+
+
+# Don't Remove Credit @VJ_Botz
+# Subscribe YouTube Channel For Amazing Bot @Tech_VJ
+# Ask Doubt on telegram @KingVJ01
+
+
+    
