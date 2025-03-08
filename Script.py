@@ -221,9 +221,15 @@ Nᴀᴍᴇ - {}"""
 
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
-    CAPTION = """<b>📂Fɪʟᴇɴᴀᴍᴇ : {file_name}
+    CAPTION = """📂 <b>Filename:</b> <a href='https://t.me/MovieSearchAutoGroup'>{file_name}</a>
+sɪᴢᴇ ⚙️: {file_size}
+•────•────✦✗✦───•────•
+📌 <b>ʀᴇǫᴜᴇsᴛ ɢʀᴏᴜᴘ :➠</b> <a href='https://t.me/+aAmjR1AgZmRlOGJl'>ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ᴊᴏɪɴ ✨</a>
+🎬 <b>ᴍᴏᴠɪᴇs ᴄʜᴀɴɴᴇʟ :➠</b> <a href='https://t.me/+iXwNgNXtOkk1OTVl'>ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ᴊᴏɪɴ ♨️</a>
+•────•────✦✗✦───•────•
 
-<b> Size ⚙️: {file_size}</b>""" 
+<b>©️ ᴘᴏᴡᴇʀᴇᴅ ʙʏ :</b> <a href='https://telegram.me/Prime_Movie_YT_bot'>ᴘʀɪᴍᴇ ʙᴏᴛᴢ</a>
+"""
 
     IMDB_TEMPLATE_TXT = """
 <b>Query: {qurey}
