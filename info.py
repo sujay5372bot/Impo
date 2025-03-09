@@ -70,7 +70,7 @@ OWNER_USERNAME = environ.get('OWNER_USERNAME', 'onefighterarmy') # owner usernam
 GRP_LNK = environ.get('GRP_LNK', 'https://t.me/MovieSearchAutoGroup')
 CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/MovieSearchAutoGroup')
 TUTORIAL = environ.get('TUTORIAL', 'https://t.me/MovieSearchAutoGroup')
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'https://t.me/MovieSearchAutoGroup') # Support Chat Link Without https:// or @
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', '') # Support Chat Link Without https:// or @
 
 # True Or False
 AI_SPELL_CHECK = bool(environ.get('AI_SPELL_CHECK', True))
