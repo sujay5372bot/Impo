@@ -26,7 +26,7 @@ BOT_TOKEN = environ.get('BOT_TOKEN', "")
 CACHE_TIME = int(environ.get('CACHE_TIME', 1800))
 PICS = (environ.get('PICS', 'https://graph.org/file/4e3cb844a124a8fed42d9.jpg')).split() #SAMPLE PIC
 NOR_IMG = environ.get("NOR_IMG", "https://graph.org/file/b69af2db776e4e85d21ec.jpg")
-MELCOW_VID = environ.get("MELCOW_VID", "https://t.me/How_To_Open_Linkl")
+MELCOW_VID = environ.get("MELCOW_VID", "https://t.me/+iXwNgNXtOkk1OTVl")
 SPELL_IMG = environ.get("SPELL_IMG", "https://te.legra.ph/file/15c1ad448dfe472a5cbb8.jpg")
 
 # Admins, Channels & Users
@@ -67,10 +67,10 @@ PAYMENT_TEXT = environ.get('PAYMENT_TEXT', '<b>- ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟ�
 OWNER_USERNAME = environ.get('OWNER_USERNAME', 'onefighterarmy') # owner username without @
 
 # Links
-GRP_LNK = environ.get('GRP_LNK', '')
-CHNL_LNK = environ.get('CHNL_LNK', '')
-TUTORIAL = environ.get('TUTORIAL', '')
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', '') # Support Chat Link Without https:// or @
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/+iXwNgNXtOkk1OTVl')
+CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/+iXwNgNXtOkk1OTVl')
+TUTORIAL = environ.get('TUTORIAL', 'https://t.me/+iXwNgNXtOkk1OTVl')
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'https://t.me/+iXwNgNXtOkk1OTVl') # Support Chat Link Without https:// or @
 
 # True Or False
 AI_SPELL_CHECK = bool(environ.get('AI_SPELL_CHECK', True))
@@ -103,8 +103,8 @@ VERIFY_TUTORIAL = environ.get('VERIFY_TUTORIAL', 'https://t.me/c/2277408829/3')
 
 # Shortlink Info
 SHORTLINK_MODE = bool(environ.get('SHORTLINK_MODE', True))
-SHORTLINK_URL = environ.get('SHORTLINK_URL', 'linkpays.in')
-SHORTLINK_API = environ.get('SHORTLINK_API', '6b6558a80696400e19688fe48e278677305411f2')
+SHORTLINK_URL = environ.get('SHORTLINK_URL', 'onylinks.com')
+SHORTLINK_API = environ.get('SHORTLINK_API', '2a8217d0e33d13ebe75b67eeb004ff47ed064b03')
 
 # Others
 MAX_B_TN = environ.get("MAX_B_TN", "5")
