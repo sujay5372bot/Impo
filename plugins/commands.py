@@ -460,7 +460,7 @@ async def start(client, message):
                         InlineKeyboardButton("How To Open Link & Verify", url=VERIFY_TUTORIAL)
                     ]]
                     await message.reply_text(
-                        text="<b>You are not verified !\nKindly verify to continue !\nᴘʟᴇᴀꜱᴇ ᴄʟɪᴄᴋ ᴏɴ ᴠᴇʀɪғʏ & ɢᴇᴛ ᴜɴʟɪᴍɪᴛᴇᴅ ᴀᴄᴄᴇꜱꜱ ғᴏʀ ᴛɪʟʟ ɴᴇxᴛ ᴠᴇʀɪғɪᴄᴀᴛɪᴏɴ !\nএকবার ভেরিফাই করুন আর পরবর্তী 24 ঘণ্টা আনলিমিটেড এড ফ্রী ফাইল পান !\nsᴇɴᴅ /plan ᴛᴏ ʙᴜʏ sᴜʙsᴄʀɪᴘᴛɪᴏɴ</b>",
+                        text="<b>You are not verified !\nKindly verify to continue !\nPʟᴇᴀꜱᴇ ᴄʟɪᴄᴋ ᴏɴ ᴠᴇʀɪғʏ & ɢᴇᴛ ᴜɴʟɪᴍɪᴛᴇᴅ ᴀᴄᴄᴇꜱꜱ ғᴏʀ ᴛɪʟʟ ɴᴇxᴛ ᴠᴇʀɪғɪᴄᴀᴛɪᴏɴ !\nএকবার ভেরিফাই করুন আর পরবর্তী 24 ঘণ্টা আনলিমিটেড এড ফ্রী ফাইল পান !\nSᴇɴᴅ /plan ᴛᴏ ʙᴜʏ sᴜʙsᴄʀɪᴘᴛɪᴏɴ</b>",
                         protect_content=True,
                         reply_markup=InlineKeyboardMarkup(btn)
                     )
