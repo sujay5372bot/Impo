@@ -99,7 +99,7 @@ VERIFY_SHORTLINK_API = environ.get('VERIFY_SHORTLINK_API', '2a8217d0e33d13ebe75b
 # if verify second shortner is True then fill below url and api
 VERIFY_SND_SHORTLINK_URL = environ.get('VERIFY_SND_SHORTLINK_URL', '')
 VERIFY_SND_SHORTLINK_API = environ.get('VERIFY_SND_SHORTLINK_API', '')
-VERIFY_TUTORIAL = environ.get('VERIFY_TUTORIAL', 'https://t.me/c/2277408829/3')
+VERIFY_TUTORIAL = environ.get('VERIFY_TUTORIAL', 'https://t.me/c/2046895970/273')
 
 # Shortlink Info
 SHORTLINK_MODE = bool(environ.get('SHORTLINK_MODE', True))
