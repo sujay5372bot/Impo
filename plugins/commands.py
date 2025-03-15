@@ -307,7 +307,7 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(button)
                 )
                 filesarr.append(msg)
-                k = await client.send_message(chat_id = message.from_user.id, text=f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
+                k = await client.send_message(chat_id = message.from_user.id, text=f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there\n<b>এই মুভি ফাইল/ভিডিওটি ১০ মিনিটের মধ্যে মুছে ফেলা হবে 🫥 (কপিরাইট সমস্যার কারণে)। অনুগ্রহ করে এই ফাইল/ভিডিওটি আপনার সংরক্ষিত বার্তাগুলিতে ফরোয়ার্ড করুন এবং সেখান থেকে ডাউনলোড শুরু করুন।</i></b>")
                 await asyncio.sleep(600)
                 for x in filesarr:
                     await x.delete()
@@ -318,7 +318,7 @@ async def start(client, message):
                 continue
             await asyncio.sleep(1) 
         await sts.delete()
-        k = await client.send_message(chat_id = message.from_user.id, text=f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
+        k = await client.send_message(chat_id = message.from_user.id, text=f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there\n<b>এই মুভি ফাইল/ভিডিওটি ১০ মিনিটের মধ্যে মুছে ফেলা হবে 🫥 (কপিরাইট সমস্যার কারণে)। অনুগ্রহ করে এই ফাইল/ভিডিওটি আপনার সংরক্ষিত বার্তাগুলিতে ফরোয়ার্ড করুন এবং সেখান থেকে ডাউনলোড শুরু করুন।</i></b>")
         await asyncio.sleep(600)
         for x in filesarr:
             await x.delete()
@@ -382,7 +382,7 @@ async def start(client, message):
         is_valid = await check_token(client, userid, token)
         if is_valid == True:
             await message.reply_text(
-                text=f"<b>Hey {message.from_user.mention}, You are successfully verified !\nNow you have unlimited access for all movies till today midnight.</b>",
+                text=f"<b>Hey {message.from_user.mention}, ❤️‍🔥You are successfully verified !\nNow you have unlimited access for all movies till today midnight❤️‍🔥.</b>",
                 protect_content=True
             )
             await verify_user(client, userid, token)
@@ -460,7 +460,8 @@ async def start(client, message):
                         InlineKeyboardButton("How To Open Link & Verify", url=VERIFY_TUTORIAL)
                     ]]
                     await message.reply_text(
-                        text="<b>You are not verified !\nKindly verify to continue\nএক বার verify করলে upto 24 ঘণ্টা পৰ্যন্ত verify করতে লাগবে না আনলিমিটেড মুভি পাবেন /Myplan !</b>",
+                        text="<b>You are not verified !\nKindly verify to continue\nএক বার verify করলে upto 24 ঘণ্টা পৰ্যন্ত verify করতে লাগবে না আনলিমিটেড মুভি পাবেন ❤️‍🔥 Remove Ads Get Direct File👉
+                         /Myplan !</b>",
                         protect_content=True,
                         reply_markup=InlineKeyboardMarkup(btn)
                     )
@@ -489,7 +490,7 @@ async def start(client, message):
                 reply_markup=InlineKeyboardMarkup(button)
             )
             filesarr.append(msg)
-        k = await client.send_message(chat_id = message.from_user.id, text=f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
+        k = await client.send_message(chat_id = message.from_user.id, text=f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there\nএই মুভি ফাইল/ভিডিওটি ১০ মিনিটের মধ্যে মুছে ফেলা হবে 🫥 (কপিরাইট সমস্যার কারণে)। অনুগ্রহ করে এই ফাইল/ভিডিওটি আপনার সংরক্ষিত বার্তাগুলিতে ফরোয়ার্ড করুন এবং সেখান থেকে ডাউনলোড শুরু করুন।</i></b>")
         await asyncio.sleep(600)
         for x in filesarr:
             await x.delete()
@@ -533,7 +534,7 @@ async def start(client, message):
                         InlineKeyboardButton("How To Open Link & Verify", url=VERIFY_TUTORIAL)
                     ]]
                     await message.reply_text(
-                        text="<b>You are not verified !\nKindly verify to continue\nএক বার verify করলে upto 24 ঘণ্টা পৰ্যন্ত verify করতে লাগবে না আনলিমিটেড মুভি পাবেন /myplan !</b>",
+                        text="<b>You are not verified !\nKindly verify to continue\nএক বার verify করলে upto 24 ঘণ্টা পৰ্যন্ত verify করতে লাগবে না আনলিমিটেড মুভি পাবেন ❤️‍🔥 Remove Ads Get Direct File👉 /myplan !</b>",
                         protect_content=True,
                         reply_markup=InlineKeyboardMarkup(btn)
                     )
@@ -577,7 +578,7 @@ async def start(client, message):
             btn = [[
                 InlineKeyboardButton("Get File Again", callback_data=f'delfile#{file_id}')
             ]]
-            k = await msg.reply("<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
+            k = await msg.reply("<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there\nএই মুভি ফাইল/ভিডিওটি ১০ মিনিটের মধ্যে মুছে ফেলা হবে 🫥 (কপিরাইট সমস্যার কারণে)। অনুগ্রহ করে এই ফাইল/ভিডিওটি আপনার সংরক্ষিত বার্তাগুলিতে ফরোয়ার্ড করুন এবং সেখান থেকে ডাউনলোড শুরু করুন।</i></b>",quote=True)
             await asyncio.sleep(600)
             await msg.delete()
             await k.edit_text("<b>Your File/Video is successfully deleted!!!\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
@@ -586,7 +587,7 @@ async def start(client, message):
             pass
         return await message.reply('No such file exist.')
     files = files_[0]
-    title = '@onefighterarmy  ' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))
+    title = '@botmaster55  ' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))
     size=get_size(files.file_size)
     f_caption=files.caption
     if CUSTOM_FILE_CAPTION:
@@ -605,7 +606,7 @@ async def start(client, message):
                 InlineKeyboardButton("How To Open Link & Verify", url=VERIFY_TUTORIAL)
             ]]
             await message.reply_text(
-                text="<b>You are not verified !\nKindly verify to continue\nএক বার verify করলে upto 24 ঘণ্টা পৰ্যন্ত verify করতে লাগবে না আনলিমিটেড মুভি পাবেন /Myplan !</b>",
+                text="<b>You are not verified !\nKindly verify to continue\nএক বার verify করলে upto 24 ঘণ্টা পৰ্যন্ত verify করতে লাগবে না আনলিমিটেড মুভি পাবেন ❤️‍🔥 Remove Ads Get Direct File👉 /Myplan !</b>",
                 protect_content=True,
                 reply_markup=InlineKeyboardMarkup(btn)
             )
@@ -636,7 +637,7 @@ async def start(client, message):
     btn = [[
         InlineKeyboardButton("Get File Again", callback_data=f'delfile#{file_id}')
     ]]
-    k = await msg.reply("<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
+    k = await msg.reply("<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there\nএই মুভি ফাইল/ভিডিওটি ১০ মিনিটের মধ্যে মুছে ফেলা হবে 🫥 (কপিরাইট সমস্যার কারণে)। অনুগ্রহ করে এই ফাইল/ভিডিওটি আপনার সংরক্ষিত বার্তাগুলিতে ফরোয়ার্ড করুন এবং সেখান থেকে ডাউনলোড শুরু করুন।</i></b>",quote=True)
     await asyncio.sleep(600)
     await msg.delete()
     await k.edit_text("<b>Your File/Video is successfully deleted!!!\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
