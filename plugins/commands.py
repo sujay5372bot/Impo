@@ -925,7 +925,15 @@ async def settings(client, message):
                 ),
             ],
             [
-                InlineKeyboardButton(
+               # InlineKeyboardButton(
+                #    'ShortLink',
+                   # callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{grp_id}',
+              #  ),
+            #    InlineKeyboardButton(
+                 #   '✔ Oɴ' if settings["is_shortlink"] else '✘ Oғғ',
+                  #  callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{grp_id}',
+
+                    InlineKeyboardButton(
                     'ShortLink',
                     callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{grp_id}',
                 ),
@@ -1025,6 +1033,27 @@ async def settings(client, message):
                 InlineKeyboardButton(
                     '10' if settings["max_btn"] else f'{MAX_B_TN}',
                     callback_data=f'setgs#max_btn#{settings["max_btn"]}#{grp_id}',
+
+                    
+                ),
+            ],
+        ]
+        [
+               # InlineKeyboardButton(
+                #    'ShortLink',
+                   # callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{grp_id}',
+              #  ),
+            #    InlineKeyboardButton(
+                 #   '✔ Oɴ' if settings["is_shortlink"] else '✘ Oғғ',
+                  #  callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{grp_id}',
+
+                    InlineKeyboardButton(
+                    'ShortLink',
+                    callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{grp_id}',
+                ),
+                InlineKeyboardButton(
+                    '✔ Oɴ' if settings["is_shortlink"] else '✘ Oғғ',
+                    callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{grp_id}',
                 ),
             ],
         ]
@@ -1059,7 +1088,7 @@ async def save_template(client, message):
     sts = await message.reply("Checking template")
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"You are anonymous admin. Use /connect {message.chat.id} in PM")
+        return await message.reply(f"You are anonymous. Use {message.chat.id} in PM")
     chat_type = message.chat.type
 
     if chat_type == enums.ChatType.PRIVATE:
