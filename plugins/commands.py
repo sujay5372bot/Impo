@@ -1076,8 +1076,8 @@ async def settings(client, message):
                     '✔ Oɴ' if settings["is_shortlink"] else '✘ Oғғ',
                     callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{grp_id}',
                 ),
-            ],
         ]
+     #   ]
     if settings is not None:
         btn = [[
                 InlineKeyboardButton("Oᴘᴇɴ Hᴇʀᴇ ↓", callback_data=f"opnsetgrp#{grp_id}"),
