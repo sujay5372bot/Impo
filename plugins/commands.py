@@ -1055,7 +1055,6 @@ async def settings(client, message):
                 InlineKeyboardButton(
                     '10' if settings["max_btn"] else f'{MAX_B_TN}',
                     callback_data=f'setgs#max_btn#{settings["max_btn"]}#{grp_id}',
-
                     
                 ),
             ],
