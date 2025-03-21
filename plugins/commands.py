@@ -16,8 +16,8 @@ from database.connections_mdb import active_connection
 from urllib.parse import quote_plus
 from TechVJ.util.file_properties import get_name, get_hash, get_media_file_size
 
-from import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
+# from import Update, InlineKeyboardButton, InlineKeyboardMarkup
+# from import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 
 # Replace 'YOUR_BOT_TOKEN' with your actual bot token
 BOT_TOKEN = ""
