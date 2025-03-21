@@ -20,28 +20,29 @@ from TechVJ.util.file_properties import get_name, get_hash, get_media_file_size
 # from import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 
 # Replace 'YOUR_BOT_TOKEN' with your actual bot token
-BOT_TOKEN = ""
+# BOT_TOKEN = ""
 
-def start(update: Update, context: CallbackContext):
-    update.message.reply_text("Hi")
+# def start(update: Update, context: CallbackContext):
+    ###update.message.reply_text("Hi")
 
-def auto_react(update: Update, context: CallbackContext):
-    """Hi"""
-    emoji_reaction = "👍"  # Change this to any emoji you want
-    update.message.reply_text(emoji_reaction)
+#def auto_react(update: Update, context: CallbackContext):
+   # """Hi"""
+  #  emoji_reaction = "👍"  # Change this to any emoji you want
+  #  update.message.reply_text(emoji_reaction)
 
-def main():
-    updater = Updater(BOT_TOKEN, use_context=True)
-    dp = updater.dispatcher
+# def main():
+   # updater = Updater(BOT_TOKEN, use_context=True)
+  #  dp = updater.dispatcher
 
-    dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(MessageHandler(Filters.text & ~Filters.command, auto_react))
+   # dp.add_handler(CommandHandler("start", start))
+    # dp.add_handler(MessageHandler(Filters.text & ~Filters.command, auto_react))
 
-    updater.start_polling()
-    updater.idle()
+    # updater.start_polling()
+   # updater.idle()
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+  #   main()
+
 
 
 logger = logging.getLogger(__name__)
