@@ -3,7 +3,7 @@
 # Ask Doubt on telegram @KingVJ01
 
 import pymongo
-from info import DATABASE_URI, DATABASE_NAME, SECONDDB_URI
+from info import DATABASE_URI, DATABASE_NAME, SECONDDB_URI, THIRDDB_URL
 from pyrogram import enums
 import logging
 from sample_info import tempDict
@@ -16,9 +16,14 @@ mydb = myclient[DATABASE_NAME]
 myclient2 = pymongo.MongoClient(SECONDDB_URI)
 mydb2 = myclient2[DATABASE_NAME]
 
+myclient3 = pymongo.MongoClient(THIRDDB_URL)
+mydb3 = myclient3[DATABASE_NAME]
+
 async def add_filter(grp_id, text, reply_text, btn, file, alert):
     if tempDict['indexDB'] == DATABASE_URI:
         mycol = mydb[str(grp_id)]
+    else:
+        mycol = mydb3[str(grp_id)]
     else:
         mycol = mydb2[str(grp_id)]
     # mycol.create_index([('text', 'text')])
@@ -40,9 +45,11 @@ async def add_filter(grp_id, text, reply_text, btn, file, alert):
 async def find_filter(group_id, name):
     mycol = mydb[str(group_id)]
     mycol2 = mydb2[str(group_id)]
+    mycol3 = mydb3[str(group_id)]
 
     query = mycol.find( {"text":name})
     query2 = mycol2.find({"text": name})
+    query3 = mycol3.find({"text": name})
     # query = mycol.find( { "$text": {"$search": name}})
     try:
         for file in query:
@@ -65,6 +72,17 @@ async def find_filter(group_id, name):
                 except:
                     alert = None
             return reply_text, btn, alert, fileid
+            except:
+        try:
+            for file in query3:
+                reply_text = file['reply']
+                btn = file['btn']
+                fileid = file['file']
+                try:
+                    alert = file['alert']
+                except:
+                    alert = None
+            return reply_text, btn, alert, fileid
         except:
             return None, None, None, None
 
@@ -72,10 +90,12 @@ async def find_filter(group_id, name):
 async def get_filters(group_id):
     mycol = mydb[str(group_id)]
     mycol2 = mydb2[str(group_id)]
+    mycol3 = mydb3[str(group_id)]
 
     texts = []
     query = mycol.find()
     query2 = mycol2.find()
+    query3 = mycol3.find()
     try:
         for file in query:
             text = file['text']
@@ -88,16 +108,25 @@ async def get_filters(group_id):
             texts.append(text)
     except:
         pass
+    try:
+        for file in query3:
+            text = file['text']
+            texts.append(text)
+    except:
+        pass
     return texts
 
 
 async def delete_filter(message, text, group_id):
     mycol = mydb[str(group_id)]
     mycol2 = mydb2[str(group_id)]
+    mycol3 = mydb3[str(group_id)]
+    
 
     myquery = {'text':text }
     query = mycol.count_documents(myquery)
     query2 = mycol2.count_documents(myquery)
+    query3 = mycol3.count_documents(myquery)
     if query == 1:
         mycol.delete_one(myquery)
         await message.reply_text(
@@ -108,6 +137,14 @@ async def delete_filter(message, text, group_id):
     else:
         if query2 == 1:
             mycol2.delete_one(myquery)
+            await message.reply_text(
+                f"'`{text}`'  deleted. I'll not respond to that filter anymore.",
+                quote=True,
+                parse_mode=enums.ParseMode.MARKDOWN
+            )
+       else:
+        if query3 == 1:
+            mycol3.delete_one(myquery)
             await message.reply_text(
                 f"'`{text}`'  deleted. I'll not respond to that filter anymore.",
                 quote=True,
