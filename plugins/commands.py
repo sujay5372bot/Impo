@@ -16,11 +16,17 @@ from database.connections_mdb import active_connection
 from urllib.parse import quote_plus
 from TechVJ.util.file_properties import get_name, get_hash, get_media_file_size
 
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
+
+# Replace 'YOUR_BOT_TOKEN' with your actual bot token
+BOT_TOKEN = ""
+
 def start(update: Update, context: CallbackContext):
-    update.message.reply_text("Hello! I will react to your messages automatically.")
+    update.message.reply_text("Hi")
 
 def auto_react(update: Update, context: CallbackContext):
-    """React with an emoji whenever a message is sent."""
+    """Hi"""
     emoji_reaction = "👍"  # Change this to any emoji you want
     update.message.reply_text(emoji_reaction)
 
@@ -36,6 +42,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
 logger = logging.getLogger(__name__)
 
