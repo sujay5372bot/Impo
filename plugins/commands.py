@@ -15,6 +15,28 @@ from utils import get_settings, pub_is_subscribed, get_size, is_subscribed, save
 from database.connections_mdb import active_connection
 from urllib.parse import quote_plus
 from TechVJ.util.file_properties import get_name, get_hash, get_media_file_size
+
+def start(update: Update, context: CallbackContext):
+    update.message.reply_text("Hello! I will react to your messages automatically.")
+
+def auto_react(update: Update, context: CallbackContext):
+    """React with an emoji whenever a message is sent."""
+    emoji_reaction = "👍"  # Change this to any emoji you want
+    update.message.reply_text(emoji_reaction)
+
+def main():
+    updater = Updater(BOT_TOKEN, use_context=True)
+    dp = updater.dispatcher
+
+    dp.add_handler(CommandHandler("start", start))
+    dp.add_handler(MessageHandler(Filters.text & ~Filters.command, auto_react))
+
+    updater.start_polling()
+    updater.idle()
+
+if __name__ == '__main__':
+    main()
+
 logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
