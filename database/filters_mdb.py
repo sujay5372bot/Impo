@@ -155,37 +155,45 @@ async def delete_filter(message, text, group_id):
 
 
 async def del_all(message, group_id, title):
-    if str(group_id) not in mydb.list_collection_names() and str(group_id) not in mydb2.list_collection_names():
+    if str(group_id) not in mydb.list_collection_names() and str(group_id) not in mydb2.list_collection_names() and str(group_id) not in mydb3.list_collection_names():
         await message.edit_text(f"Nothing to remove in {title}!")
         return
 
     mycol = mydb[str(group_id)]
     mycol2 = mydb2[str(group_id)]
+    mycol3 = mydb3[str(group_id)]
     try:
         mycol.drop()
         mycol2.drop()
+        mycol3.drop()
         await message.edit_text(f"All filters from {title} has been removed")
     except:
         await message.edit_text("Couldn't remove all filters from group!")
+    except:
+        await message.edit_text("Couldn't remove all filters from group!👍")
         return
 
 
 async def count_filters(group_id):
     mycol = mydb[str(group_id)]
     mycol2 = mydb2[str(group_id)]
+    mycol3 = mydb3[str(group_id)]
 
-    count = (mycol.count())+(mycol2.count())
+    count = (mycol.count())+(mycol2.count())+(mycol3.count())
     return False if count == 0 else count
 
 
 async def filter_stats():
     collections = mydb.list_collection_names()
     collections2 = mydb2.list_collection_names()
+    collections3 = mydb3.list_collection_names()
 
     if "CONNECTION" in collections:
         collections.remove("CONNECTION")
     elif "CONNECTION" in collections2:
         collections2.remove("CONNECTION")
+    elif "CONNECTION" in collections3:
+        collections3.remove("CONNECTION")
 
     totalcount = 0
     for collection in collections:
@@ -197,7 +205,11 @@ async def filter_stats():
         mycol2 = mydb2[collection]
         count2 = mycol2.count()
         totalcount += count2
+    for collection in collections3:
+        mycol3 = mydb3[collection]
+        count3 = mycol3.count()
+        totalcount += count3
 
-    totalcollections = len(collections)+len(collections2)
+    totalcollections = len(collections)+len(collections2)+len(collections3)
 
     return totalcollections, totalcount
