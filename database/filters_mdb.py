@@ -3,7 +3,7 @@
 # Ask Doubt on telegram @KingVJ01
 
 import pymongo
-from info import DATABASE_URI, DATABASE_NAME, SECONDDB_URI, THIRDDB_URL
+from info import DATABASE_URI, DATABASE_NAME, SECONDDB_URI
 from pyrogram import enums
 import logging
 from sample_info import tempDict
@@ -16,14 +16,9 @@ mydb = myclient[DATABASE_NAME]
 myclient2 = pymongo.MongoClient(SECONDDB_URI)
 mydb2 = myclient2[DATABASE_NAME]
 
-myclient3 = pymongo.MongoClient(THIRDDB_URL)
-mydb3 = myclient3[DATABASE_NAME]
-
 async def add_filter(grp_id, text, reply_text, btn, file, alert):
     if tempDict['indexDB'] == DATABASE_URI:
         mycol = mydb[str(grp_id)]
-    else:
-        mycol = mydb3[str(grp_id)]
     else:
         mycol = mydb2[str(grp_id)]
     # mycol.create_index([('text', 'text')])
@@ -45,11 +40,9 @@ async def add_filter(grp_id, text, reply_text, btn, file, alert):
 async def find_filter(group_id, name):
     mycol = mydb[str(group_id)]
     mycol2 = mydb2[str(group_id)]
-    mycol3 = mydb3[str(group_id)]
 
     query = mycol.find( {"text":name})
     query2 = mycol2.find({"text": name})
-    query3 = mycol3.find({"text": name})
     # query = mycol.find( { "$text": {"$search": name}})
     try:
         for file in query:
@@ -72,17 +65,6 @@ async def find_filter(group_id, name):
                 except:
                     alert = None
             return reply_text, btn, alert, fileid
-            except:
-        try:
-            for file in query3:
-                reply_text = file['reply']
-                btn = file['btn']
-                fileid = file['file']
-                try:
-                    alert = file['alert']
-                except:
-                    alert = None
-            return reply_text, btn, alert, fileid
         except:
             return None, None, None, None
 
@@ -90,12 +72,10 @@ async def find_filter(group_id, name):
 async def get_filters(group_id):
     mycol = mydb[str(group_id)]
     mycol2 = mydb2[str(group_id)]
-    mycol3 = mydb3[str(group_id)]
 
     texts = []
     query = mycol.find()
     query2 = mycol2.find()
-    query3 = mycol3.find()
     try:
         for file in query:
             text = file['text']
@@ -108,25 +88,16 @@ async def get_filters(group_id):
             texts.append(text)
     except:
         pass
-    try:
-        for file in query3:
-            text = file['text']
-            texts.append(text)
-    except:
-        pass
     return texts
 
 
 async def delete_filter(message, text, group_id):
     mycol = mydb[str(group_id)]
     mycol2 = mydb2[str(group_id)]
-    mycol3 = mydb3[str(group_id)]
-    
 
     myquery = {'text':text }
     query = mycol.count_documents(myquery)
     query2 = mycol2.count_documents(myquery)
-    query3 = mycol3.count_documents(myquery)
     if query == 1:
         mycol.delete_one(myquery)
         await message.reply_text(
@@ -142,58 +113,42 @@ async def delete_filter(message, text, group_id):
                 quote=True,
                 parse_mode=enums.ParseMode.MARKDOWN
             )
-       else:
-        if query3 == 1:
-            mycol3.delete_one(myquery)
-            await message.reply_text(
-                f"'`{text}`'  deleted. I'll not respond to that filter anymore.",
-                quote=True,
-                parse_mode=enums.ParseMode.MARKDOWN
-            )
         else:
             await message.reply_text("Couldn't find that filter!", quote=True)
 
 
 async def del_all(message, group_id, title):
-    if str(group_id) not in mydb.list_collection_names() and str(group_id) not in mydb2.list_collection_names() and str(group_id) not in mydb3.list_collection_names():
+    if str(group_id) not in mydb.list_collection_names() and str(group_id) not in mydb2.list_collection_names():
         await message.edit_text(f"Nothing to remove in {title}!")
         return
 
     mycol = mydb[str(group_id)]
     mycol2 = mydb2[str(group_id)]
-    mycol3 = mydb3[str(group_id)]
     try:
         mycol.drop()
         mycol2.drop()
-        mycol3.drop()
         await message.edit_text(f"All filters from {title} has been removed")
     except:
         await message.edit_text("Couldn't remove all filters from group!")
-    except:
-        await message.edit_text("Couldn't remove all filters from group!👍")
         return
 
 
 async def count_filters(group_id):
     mycol = mydb[str(group_id)]
     mycol2 = mydb2[str(group_id)]
-    mycol3 = mydb3[str(group_id)]
 
-    count = (mycol.count())+(mycol2.count())+(mycol3.count())
+    count = (mycol.count())+(mycol2.count())
     return False if count == 0 else count
 
 
 async def filter_stats():
     collections = mydb.list_collection_names()
     collections2 = mydb2.list_collection_names()
-    collections3 = mydb3.list_collection_names()
 
     if "CONNECTION" in collections:
         collections.remove("CONNECTION")
     elif "CONNECTION" in collections2:
         collections2.remove("CONNECTION")
-    elif "CONNECTION" in collections3:
-        collections3.remove("CONNECTION")
 
     totalcount = 0
     for collection in collections:
@@ -205,11 +160,7 @@ async def filter_stats():
         mycol2 = mydb2[collection]
         count2 = mycol2.count()
         totalcount += count2
-    for collection in collections3:
-        mycol3 = mydb3[collection]
-        count3 = mycol3.count()
-        totalcount += count3
 
-    totalcollections = len(collections)+len(collections2)+len(collections3)
+    totalcollections = len(collections)+len(collections2)
 
     return totalcollections, totalcount
