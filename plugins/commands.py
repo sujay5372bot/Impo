@@ -460,7 +460,9 @@ async def start(client, message):
                         InlineKeyboardButton("How To Open Link & Verify", url=VERIFY_TUTORIAL)
                     ]]
                     await message.reply_text(
-                        text="<b>You are not verified !\nKindly verify to continue\nএক বার verify করলে upto 6 ঘণ্টা পৰ্যন্ত verify করতে লাগবে না আনলিমিটেড মুভি পাবেন ❤️‍🔥 Remove Ads Get Direct File👉 /Myplan !</b>",
+                        text="<b>🎬 Apni Pasandida Movies Aur Web Series Ka Maza Lo! 🍿\nAb bina rukawat, direct download aur\nlatest content ka maza uthaiye — sirf hamari Movie Bot Membership ke sath! 💯\n
+
+✅ Har Naye Movie Ka Sabse Pehle Access!\n✅ Fast Download, Koi Wait Nahi!\n✅ Unlimited Entertainment, Non-stop Masti!\n🔥 Ab Der Kis Baat Ki? Apni Membership Abhi Lo!\nɪғ ʏᴏᴜ ᴡᴀɴᴛ ᴅɪʀᴇᴄᴛ ғɪʟᴇꜱ ᴡɪᴛʜᴏᴜᴛ ᴀɴʏ ᴠᴇʀɪғɪᴄᴀᴛɪᴏɴꜱ ᴛʜᴇɴ ʙᴜʏ ʙᴏᴛ ꜱᴜʙꜱᴄʀɪᴘᴛɪᴏɴ 😊\n💶 sᴇɴᴅ /plan ᴛᴏ ʙᴜʏ sᴜʙsᴄʀɪᴘᴛɪᴏɴ ❤️‍🔥 Remove Ads Get Direct File👉 /Myplan !</b>",
                         protect_content=True,
                         reply_markup=InlineKeyboardMarkup(btn)
                     )
