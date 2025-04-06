@@ -1,5 +1,5 @@
 import motor.motor_asyncio
-from info import *
+from info import db, delete_all_referal_users
 import datetime
 import pytz  
 from pymongo.errors import DuplicateKeyError
