@@ -1,92 +1,40 @@
-# Don't Remove Credit @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot @Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
-import re
-from pymongo.errors import DuplicateKeyError
 import motor.motor_asyncio
-from pymongo import MongoClient
-from info import DATABASE_NAME, DATABASE_URI, CUSTOM_FILE_CAPTION, IMDB, IMDB_TEMPLATE, MELCOW_NEW_USERS, P_TTI_SHOW_OFF, SINGLE_BUTTON, SPELL_CHECK_REPLY, PROTECT_CONTENT, AUTO_DELETE, MAX_BTN, AUTO_FFILTER, SHORTLINK_API, SHORTLINK_URL, IS_SHORTLINK, TUTORIAL, IS_TUTORIAL
-import time
+from info import *
 import datetime
+import pytz  
+from pymongo.errors import DuplicateKeyError
+from pymongo import MongoClient
 
-my_client = MongoClient(DATABASE_URI)
-mydb = my_client["referal_user"]
-
-async def referal_add_user(user_id, ref_user_id):
-    user_db = mydb[str(user_id)]
-    user = {'_id': ref_user_id}
-    try:
-        user_db.insert_one(user)
-        return True
-    except DuplicateKeyError:
-        return False
-    
-
-async def get_referal_all_users(user_id):
-    user_db = mydb[str(user_id)]
-    return user_db.find()
-    
-async def get_referal_users_count(user_id):
-    user_db = mydb[str(user_id)]
-    count = user_db.count_documents({})
-    return count
-    
-
-async def delete_all_referal_users(user_id):
-    user_db = mydb[str(user_id)]
-    user_db.delete_many({}) 
-
-    
-class Database:
-
-    default_setgs = {
-        'button': SINGLE_BUTTON,
-        'botpm': P_TTI_SHOW_OFF,
-        'file_secure': PROTECT_CONTENT,
-        'imdb': IMDB,
-        'spell_check': SPELL_CHECK_REPLY,
-        'welcome': MELCOW_NEW_USERS,
-        'auto_delete': AUTO_DELETE,
-        'auto_ffilter': AUTO_FFILTER,
-        'max_btn': MAX_BTN,
-        'template': IMDB_TEMPLATE,
-        'caption': CUSTOM_FILE_CAPTION,
-        'shortlink': SHORTLINK_URL,
-        'shortlink_api': SHORTLINK_API,
-        'is_shortlink': IS_SHORTLINK,
-        'fsub': None,
-        'tutorial': TUTORIAL,
-        'is_tutorial': IS_TUTORIAL,
-        'vj': None,
-        'techvj': None,
-        'tech_vj': None,
-        'vjtech': None,
-        'vj_tech': None
-    }
-    
+class Database:    
     def __init__(self, uri, database_name):
         self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
         self.db = self._client[database_name]
         self.col = self.db.users
         self.grp = self.db.groups
         self.users = self.db.uersz
+        self.req = self.db.requests
+        self.botcol = self.db.bot_settings
+        self.misc = self.db.misc
+        self.verify_id = self.db.verify_id 
 
+    async def find_join_req(self, id):
+        return bool(await self.req.find_one({'id': id})) 
+     
+    async def add_join_req(self, id):
+        await self.req.insert_one({'id': id})
+
+    async def del_join_req(self):
+        await self.req.drop()
 
     def new_user(self, id, name):
         return dict(
             id = id,
             name = name,
-            file_id=None,
-            caption=None,
-            message_command=None,
-            save=False,
             ban_status=dict(
                 is_banned=False,
                 ban_reason="",
             ),
         )
-
 
     def new_group(self, id, title):
         return dict(
@@ -96,7 +44,6 @@ class Database:
                 is_disabled=False,
                 reason="",
             ),
-            settings=self.default_setgs
         )
     
     async def add_user(self, id, name):
@@ -138,10 +85,11 @@ class Database:
     async def get_all_users(self):
         return self.col.find({})
     
-
     async def delete_user(self, user_id):
         await self.col.delete_many({'id': int(user_id)})
-
+        
+    async def delete_chat(self, id):
+        await self.grp.delete_many({'id': int(id)})    
 
     async def get_banned(self):
         users = self.col.find({'ban_status.is_banned': True})
@@ -150,18 +98,14 @@ class Database:
         b_users = [user['id'] async for user in users]
         return b_users, b_chats
     
-
-
     async def add_chat(self, chat, title):
         chat = self.new_group(chat, title)
         await self.grp.insert_one(chat)
     
-
     async def get_chat(self, chat):
         chat = await self.grp.find_one({'id':int(chat)})
         return False if not chat else chat.get('chat_status')
     
-
     async def re_enable_chat(self, id):
         chat_status=dict(
             is_disabled=False,
@@ -171,31 +115,54 @@ class Database:
         
     async def update_settings(self, id, settings):
         await self.grp.update_one({'id': int(id)}, {'$set': {'settings': settings}})
-        
-    
+            
     async def get_settings(self, id):
+        default = {
+            'button': SINGLE_BUTTON,
+            'botpm': P_TTI_SHOW_OFF,
+            'file_secure': PROTECT_CONTENT,
+            'imdb': IMDB,
+            'spell_check': SPELL_CHECK_REPLY,
+            'welcome': MELCOW_NEW_USERS,
+            'auto_delete': AUTO_DELETE,
+            'auto_ffilter': AUTO_FFILTER,
+            'max_btn': MAX_BTN,
+            'template': IMDB_TEMPLATE,
+            'log': LOG_VR_CHANNEL,
+            'tutorial': TUTORIAL,
+            'tutorial_2': TUTORIAL_2,
+            'tutorial_3': TUTORIAL_3,
+            'shortner': SHORTENER_WEBSITE,
+            'api': SHORTENER_API,
+            'shortner_two': SHORTENER_WEBSITE2,
+            'api_two': SHORTENER_API2,
+            'shortner_three': SHORTENER_WEBSITE3,
+            'api_three': SHORTENER_API3,
+            'is_verify': IS_VERIFY,
+            'verify_time': TWO_VERIFY_GAP,
+            'third_verify_time': THREE_VERIFY_GAP,
+            'caption': CUSTOM_FILE_CAPTION,
+            'fsub_id': AUTH_CHANNEL
+        }
         chat = await self.grp.find_one({'id':int(id)})
-        if chat:
-            return chat.get('settings', self.default_setgs)
-        return self.default_setgs
+        if chat and 'settings' in chat:
+            return chat['settings']
+        else:
+            return default.copy()
     
-
     async def disable_chat(self, chat, reason="No Reason"):
         chat_status=dict(
             is_disabled=True,
             reason=reason,
             )
         await self.grp.update_one({'id': int(chat)}, {'$set': {'chat_status': chat_status}})
-    
 
     async def total_chat_count(self):
         count = await self.grp.count_documents({})
         return count
     
-
     async def get_all_chats(self):
         return self.grp.find({})
-
 
     async def get_db_size(self):
         return (await self.db.command("dbstats"))['dataSize']
@@ -203,78 +170,191 @@ class Database:
     async def get_user(self, user_id):
         user_data = await self.users.find_one({"id": user_id})
         return user_data
-            
     async def update_user(self, user_data):
         await self.users.update_one({"id": user_data["id"]}, {"$set": user_data}, upsert=True)
 
+    async def get_notcopy_user(self, user_id):
+        user_id = int(user_id)
+        user = await self.misc.find_one({"user_id": user_id})
+        ist_timezone = pytz.timezone('Asia/Kolkata')
+        if not user:
+            res = {
+                "user_id": user_id,
+                "last_verified": datetime.datetime(2020, 5, 17, 0, 0, 0, tzinfo=ist_timezone),
+                "second_time_verified": datetime.datetime(2019, 5, 17, 0, 0, 0, tzinfo=ist_timezone),
+            }
+            user = await self.misc.insert_one(res)
+        return user
+
+    async def update_notcopy_user(self, user_id, value:dict):
+        user_id = int(user_id)
+        myquery = {"user_id": user_id}
+        newvalues = {"$set": value}
+        return await self.misc.update_one(myquery, newvalues)
+
+    async def is_user_verified(self, user_id):
+        user = await self.get_notcopy_user(user_id)
+        try:
+            pastDate = user["last_verified"]
+        except Exception:
+            user = await self.get_notcopy_user(user_id)
+            pastDate = user["last_verified"]
+        ist_timezone = pytz.timezone('Asia/Kolkata')
+        pastDate = pastDate.astimezone(ist_timezone)
+        current_time = datetime.datetime.now(tz=ist_timezone)
+        seconds_since_midnight = (current_time - datetime.datetime(current_time.year, current_time.month, current_time.day, 0, 0, 0, tzinfo=ist_timezone)).total_seconds()
+        time_diff = current_time - pastDate
+        total_seconds = time_diff.total_seconds()
+        return total_seconds <= seconds_since_midnight
+
+    async def user_verified(self, user_id):
+        user = await self.get_notcopy_user(user_id)
+        try:
+            pastDate = user["second_time_verified"]
+        except Exception:
+            user = await self.get_notcopy_user(user_id)
+            pastDate = user["second_time_verified"]
+        ist_timezone = pytz.timezone('Asia/Kolkata')
+        pastDate = pastDate.astimezone(ist_timezone)
+        current_time = datetime.datetime.now(tz=ist_timezone)
+        seconds_since_midnight = (current_time - datetime.datetime(current_time.year, current_time.month, current_time.day, 0, 0, 0, tzinfo=ist_timezone)).total_seconds()
+        time_diff = current_time - pastDate
+        total_seconds = time_diff.total_seconds()
+        return total_seconds <= seconds_since_midnight
+
+    async def use_second_shortener(self, user_id, time):
+        user = await self.get_notcopy_user(user_id)
+        if not user.get("second_time_verified"):
+            ist_timezone = pytz.timezone('Asia/Kolkata')
+            await self.update_notcopy_user(user_id, {"second_time_verified":datetime.datetime(2019, 5, 17, 0, 0, 0, tzinfo=ist_timezone)})
+            user = await self.get_notcopy_user(user_id)
+        if await self.is_user_verified(user_id):
+            try:
+                pastDate = user["last_verified"]
+            except Exception:
+                user = await self.get_notcopy_user(user_id)
+                pastDate = user["last_verified"]
+            ist_timezone = pytz.timezone('Asia/Kolkata')
+            pastDate = pastDate.astimezone(ist_timezone)
+            current_time = datetime.datetime.now(tz=ist_timezone)
+            time_difference = current_time - pastDate
+            if time_difference > datetime.timedelta(seconds=time):
+                pastDate = user["last_verified"].astimezone(ist_timezone)
+                second_time = user["second_time_verified"].astimezone(ist_timezone)
+                return second_time < pastDate
+        return False
+
+    async def use_third_shortener(self, user_id, time):
+        user = await self.get_notcopy_user(user_id)
+        if not user.get("third_time_verified"):
+            ist_timezone = pytz.timezone('Asia/Kolkata')
+            await self.update_notcopy_user(user_id, {"third_time_verified":datetime.datetime(2018, 5, 17, 0, 0, 0, tzinfo=ist_timezone)})
+            user = await self.get_notcopy_user(user_id)
+        if await self.user_verified(user_id):
+            try:
+                pastDate = user["second_time_verified"]
+            except Exception:
+                user = await self.get_notcopy_user(user_id)
+                pastDate = user["second_time_verified"]
+            ist_timezone = pytz.timezone('Asia/Kolkata')
+            pastDate = pastDate.astimezone(ist_timezone)
+            current_time = datetime.datetime.now(tz=ist_timezone)
+            time_difference = current_time - pastDate
+            if time_difference > datetime.timedelta(seconds=time):
+                pastDate = user["second_time_verified"].astimezone(ist_timezone)
+                second_time = user["third_time_verified"].astimezone(ist_timezone)
+                return second_time < pastDate
+        return False
+   
+    async def create_verify_id(self, user_id: int, hash):
+        res = {"user_id": user_id, "hash":hash, "verified":False}
+        return await self.verify_id.insert_one(res)
+
+    async def get_verify_id_info(self, user_id: int, hash):
+        return await self.verify_id.find_one({"user_id": user_id, "hash": hash})
+
+    async def update_verify_id_info(self, user_id, hash, value: dict):
+        myquery = {"user_id": user_id, "hash": hash}
+        newvalues = { "$set": value }
+        return await self.verify_id.update_one(myquery, newvalues)
+        
     async def has_premium_access(self, user_id):
         user_data = await self.get_user(user_id)
         if user_data:
             expiry_time = user_data.get("expiry_time")
             if expiry_time is None:
-                # User previously used the free trial, but it has ended.
                 return False
             elif isinstance(expiry_time, datetime.datetime) and datetime.datetime.now() <= expiry_time:
                 return True
             else:
                 await self.users.update_one({"id": user_id}, {"$set": {"expiry_time": None}})
         return False
-    
-    async def check_remaining_uasge(self, userid):
-        user_id = userid
-        user_data = await self.get_user(user_id)        
-        expiry_time = user_data.get("expiry_time")
-        # Calculate remaining time
-        remaining_time = expiry_time - datetime.datetime.now()
-        return remaining_time
+        
+    async def update_user(self, user_data):
+        await self.users.update_one({"id": user_data["id"]}, {"$set": user_data}, upsert=True)
 
-    async def get_free_trial_status(self, user_id):
+    async def update_one(self, filter_query, update_data):
+        try:
+            result = await self.users.update_one(filter_query, update_data)
+            return result.matched_count == 1
+        except Exception as e:
+            print(f"Error updating document: {e}")
+            return False
+
+    async def get_expired(self, current_time):
+        expired_users = []
+        if data := self.users.find({"expiry_time": {"$lt": current_time}}):
+            async for user in data:
+                expired_users.append(user)
+        return expired_users
+
+    async def remove_premium_access(self, user_id):
+        return await self.update_one(
+            {"id": user_id}, {"$set": {"expiry_time": None}}
+        )
+
+    async def check_trial_status(self, user_id):
         user_data = await self.get_user(user_id)
         if user_data:
             return user_data.get("has_free_trial", False)
         return False
 
-    async def give_free_trail(self, userid):        
-        user_id = userid
+    async def give_free_trial(self, user_id):
+        user_id = user_id
         seconds = 5*60         
         expiry_time = datetime.datetime.now() + datetime.timedelta(seconds=seconds)
         user_data = {"id": user_id, "expiry_time": expiry_time, "has_free_trial": True}
         await self.users.update_one({"id": user_id}, {"$set": user_data}, upsert=True)
-    
-    
+
     async def all_premium_users(self):
         count = await self.users.count_documents({
         "expiry_time": {"$gt": datetime.datetime.now()}
         })
         return count
-
-    async def set_thumbnail(self, id, file_id):
-        await self.col.update_one({'id': int(id)}, {'$set': {'file_id': file_id}})
-
-    async def get_thumbnail(self, id):
-        user = await self.col.find_one({'id': int(id)})
-        return user.get('file_id', None)
-
-    async def set_caption(self, id, caption):
-        await self.col.update_one({'id': int(id)}, {'$set': {'caption': caption}})
-
-    async def get_caption(self, id):
-        user = await self.col.find_one({'id': int(id)})
-        return user.get('caption', None)
-
-    async def set_msg_command(self, id, com):
-        await self.col.update_one({'id': int(id)}, {'$set': {'message_command': com}})
-
-    async def get_msg_command(self, id):
-        user = await self.col.find_one({'id': int(id)})
-        return user.get('message_command', None)
-
-    async def set_save(self, id, save):
-        await self.col.update_one({'id': int(id)}, {'$set': {'save': save}})
-
-    async def get_save(self, id):
-        user = await self.col.find_one({'id': int(id)})
-        return user.get('save', False) 
     
+    async def get_bot_setting(self, bot_id, setting_key, default_value):
+        bot = await self.botcol.find_one({'id': int(bot_id)}, {setting_key: 1, '_id': 0})
+        return bot[setting_key] if bot and setting_key in bot else default_value
+        
+    async def update_bot_setting(self, bot_id, setting_key, value):
+        await self.botcol.update_one(
+            {'id': int(bot_id)}, 
+            {'$set': {setting_key: value}}, 
+            upsert=True
+        )
 
-db = Database(DATABASE_URI, DATABASE_NAME)
+    async def pm_search_status(self, bot_id):
+        return await self.get_bot_setting(bot_id, 'PM_SEARCH', PM_SEARCH)
+
+    async def update_pm_search_status(self, bot_id, enable):
+        await self.update_bot_setting(bot_id, 'PM_SEARCH', enable)
+
+    async def movie_update_status(self, bot_id):
+        return await self.get_bot_setting(bot_id, 'MOVIE_UPDATE_NOTIFICATION', MOVIE_UPDATE_NOTIFICATION)
+
+    async def update_movie_update_status(self, bot_id, enable):
+        await self.update_bot_setting(bot_id, 'MOVIE_UPDATE_NOTIFICATION', enable)
+
+        
+db = Database(DATABASE_URI, DATABASE_NAME)    
+db2 = Database(DATABASE_URI2, DATABASE_NAME)
