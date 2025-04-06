@@ -357,4 +357,4 @@ class Database:
 
         
 db = Database(DATABASE_URI, DATABASE_NAME)    
-db2 = Database(SECONDDB_URI, DATABASE_NAME)
+#db2 = Database(SECONDDB_URI, DATABASE_NAME)
