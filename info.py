@@ -30,9 +30,9 @@ MELCOW_VID = environ.get("MELCOW_VID", "https://t.me/c/2277408829/3")
 SPELL_IMG = environ.get("SPELL_IMG", "https://te.legra.ph/file/15c1ad448dfe472a5cbb8.jpg")
 
 # Admins, Channels & Users
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002263940357'))
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '7348205141').split()]
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002492003227').split()]
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', ''))
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '1798604396').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 
@@ -51,8 +51,8 @@ FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '')).
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
 
 # MongoDB info
-SECONDDB_URI = environ.get('SECONDDB_URI', "mongodb+srv://sujay0000:sujay0000@cluster0.8vnev.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://sujay5372222222:sujay5372222222@cluster0000007.fdufm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0000007")
+SECONDDB_URI = environ.get('SECONDDB_URI', "")
+DATABASE_URI = environ.get('DATABASE_URI', "")
 DATABASE_NAME = environ.get('DATABASE_NAME', "techvjautobot")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'techvjcollection')
 
@@ -67,10 +67,10 @@ PAYMENT_TEXT = environ.get('PAYMENT_TEXT', '<b>- ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟ�
 OWNER_USERNAME = environ.get('OWNER_USERNAME', 'MovieRitik2') # owner username without @
 
 # Links
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/+bt6gXsnD6vs2YWRl')
-CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/+bt6gXsnD6vs2YWRl')
-TUTORIAL = environ.get('TUTORIAL', 'https://t.me/+bt6gXsnD6vs2YWRl')
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'Ritikmove') # Support Chat Link Without https:// or @
+GRP_LNK = environ.get('GRP_LNK', '')
+CHNL_LNK = environ.get('CHNL_LNK', '')
+TUTORIAL = environ.get('TUTORIAL', '')
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', '') # Support Chat Link Without https:// or @
 
 # True Or False
 AI_SPELL_CHECK = bool(environ.get('AI_SPELL_CHECK', True))
@@ -94,8 +94,8 @@ USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
 # Token Verification Info :
 VERIFY = bool(environ.get('VERIFY', False))
 VERIFY_SECOND_SHORTNER = bool(environ.get('VERIFY_SECOND_SHORTNER', False))
-VERIFY_SHORTLINK_URL = environ.get('VERIFY_SHORTLINK_URL', 'linkpays.in')
-VERIFY_SHORTLINK_API = environ.get('VERIFY_SHORTLINK_API', '81679ac32050c2801d66dabbe8a0b02446faa1f3')
+VERIFY_SHORTLINK_URL = environ.get('VERIFY_SHORTLINK_URL', '')
+VERIFY_SHORTLINK_API = environ.get('VERIFY_SHORTLINK_API', '')
 # if verify second shortner is True then fill below url and api
 VERIFY_SND_SHORTLINK_URL = environ.get('VERIFY_SND_SHORTLINK_URL', '')
 VERIFY_SND_SHORTLINK_API = environ.get('VERIFY_SND_SHORTLINK_API', '')
@@ -103,8 +103,8 @@ VERIFY_TUTORIAL = environ.get('VERIFY_TUTORIAL', 'https://t.me/c/2277408829/3')
 
 # Shortlink Info
 SHORTLINK_MODE = bool(environ.get('SHORTLINK_MODE', False))
-SHORTLINK_URL = environ.get('SHORTLINK_URL', 'linkpays.in')
-SHORTLINK_API = environ.get('SHORTLINK_API', '81679ac32050c2801d66dabbe8a0b02446faa1f3')
+SHORTLINK_URL = environ.get('SHORTLINK_URL', '')
+SHORTLINK_API = environ.get('SHORTLINK_API', '')
 
 # Others
 MAX_B_TN = environ.get("MAX_B_TN", "5")
