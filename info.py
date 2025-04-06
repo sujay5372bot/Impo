@@ -44,7 +44,7 @@ DATABASE_URI = environ.get('DATABASE_URI', "") #MongoDB Url
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'SilentXBotz_files')
 
-# If MULTIPLE_DB Is True Then Fill DATABASE_URI2 Value Else You Will Get Error.
+# If MULTIPLE_DB Is True Then Fill SECONDDB_URI Value Else You Will Get Error.
 MULTIPLE_DB = is_enabled(os.environ.get('MULTIPLE_DB', "True"), True) # Type True For Turn On MULTIPLE DB FUNTION 
 SECONDDB_URI = environ.get('SECONDDB_URI', "")
 
