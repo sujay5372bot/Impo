@@ -46,7 +46,7 @@ COLLECTION_NAME = environ.get('COLLECTION_NAME', 'SilentXBotz_files')
 
 # If MULTIPLE_DB Is True Then Fill DATABASE_URI2 Value Else You Will Get Error.
 MULTIPLE_DB = is_enabled(os.environ.get('MULTIPLE_DB', "True"), True) # Type True For Turn On MULTIPLE DB FUNTION 
-DATABASE_URI2 = environ.get('DATABASE_URI2', "")
+SECONDDB_URI = environ.get('SECONDDB_URI', "")
 
 GRP_LNK = environ.get('GRP_LNK', 'https://t.me/')
 CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/')
@@ -163,7 +163,7 @@ Bot_cmds = {
 #Don't Change Anything Here
 if MULTIPLE_DB == False:
     DATABASE_URI = DATABASE_URI
-    DATABASE_URI2 = DATABASE_URI
+    SECONDDB_URI = DATABASE_URI
 else:
     DATABASE_URI = DATABASE_URI
-    DATABASE_URI2 = DATABASE_URI2
+    SECONDDB_URI = SECONDDB_URI
