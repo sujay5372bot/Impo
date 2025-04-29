@@ -43,6 +43,7 @@ TRY_AGAIN_BTN = bool(environ.get('TRY_AGAIN_BTN', False)) # Set True Or False (T
 auth_channel = environ.get('AUTH_CHANNEL', '-1002424418647') # give your force subscribe channel id here else leave it blank
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 reqst_channel = environ.get('REQST_CHANNEL_ID', '')
+req_channel = int(os.environ.get('REQ_CHANNAL','-1002692803410'))
 #PREMIUM_LOGS = int(environ.get('PREMIUM_LOGS', '-1002046895970'))
 REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_channel) else None
 support_chat_id = environ.get('SUPPORT_CHAT_ID', '')
