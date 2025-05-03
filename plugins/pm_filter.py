@@ -2996,8 +2996,8 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
             if any(sub in message.text.lower() for sub in ["http://", "https://", "t.me/", "telegram.me/"]):
                 user_id = message.from_user.id
                 await message.delete()  # Delete the message containing the URL
-                await message.chat.send_message(  # Send a warning to the user
-                f"[{message.from_user.first_name}](tg://user?id={user_id}) 🚫 Is group mein links bhejna mana hai!",
+                await message.reply(
+                f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) 🚫 is group mein links bhejna mana hai!",
                 parse_mode="markdown"
                 )
                 return  # Skip further processing
@@ -3016,8 +3016,8 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
             if any(sub in message.text.lower() for sub in ["http://", "https://", "t.me/", "telegram.me/"]):
                 user_id = message.from_user.id
                 await message.delete()  # Delete the message containing the URL
-                await message.chat.send_message(  # Send a warning to the user
-                f"[{message.from_user.first_name}](tg://user?id={user_id}) 🚫 Is group mein links bhejna mana hai!",
+                await message.reply(
+                f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) 🚫 is group mein links bhejna mana hai!",
                 parse_mode="markdown"
                 )
                 return  # Skip further processing
@@ -3050,8 +3050,8 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
             if any(sub in message.text.lower() for sub in ["http://", "https://", "t.me/", "telegram.me/"]):
                 user_id = message.from_user.id
                 await message.delete()  # Delete the message containing the URL
-                await message.chat.send_message(  # Send a warning to the user
-                f"[{message.from_user.first_name}](tg://user?id={user_id}) 🚫 Is group mein links bhejna mana hai!",
+                await message.reply(
+                f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) 🚫 is group mein links bhejna mana hai!",
                 parse_mode="markdown"
                 )
                 return  # Skip further processing
