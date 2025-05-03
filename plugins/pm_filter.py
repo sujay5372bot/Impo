@@ -2994,6 +2994,7 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
         ]]
         if NO_RESULTS_MSG:
             if any(sub in message.text.lower() for sub in ["http://", "https://", "t.me/", "telegram.me/"]):
+                await message.delete()
                 return  # Skip processing
             await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
         k = await reply_msg.edit_text(text=script.I_CUDNT.format(mv_rqst), reply_markup=InlineKeyboardMarkup(button))
@@ -3008,6 +3009,7 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
         ]]
         if NO_RESULTS_MSG:
             if any(sub in message.text.lower() for sub in ["http://", "https://", "t.me/", "telegram.me/"]):
+                await message.delete()
                 return  # Skip processing
             await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
         k = await reply_msg.edit_text(text=script.I_CUDNT.format(mv_rqst), reply_markup=InlineKeyboardMarkup(button))
@@ -3036,6 +3038,7 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
         ]]
         if NO_RESULTS_MSG:
             if any(sub in message.text.lower() for sub in ["http://", "https://", "t.me/", "telegram.me/"]):
+                await message.delete()
                 return  # Skip processing
             await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
         k = await reply_msg.edit_text(text=script.I_CUDNT.format(mv_rqst), reply_markup=InlineKeyboardMarkup(button))
