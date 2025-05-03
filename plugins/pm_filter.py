@@ -35,8 +35,15 @@ SPELL_CHECK = {}
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
-    if any(sub in message.text.lower() for sub in ["http://", "https://", "t.me/", "telegram.me/"]):
-        return  # Skip processing
+    if re.search(r'https?://\S+|www\.\S+|t\.me/\S+|telegram\.me/\S+', message.text.lower()):
+        if await is_check_admin(client, message.chat.id, message.from_user.id):
+            return  # Admins ke liye allowed
+        await message.delete()  # Delete the message containing the URL
+        await message.reply(
+        f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) 🚫 is group mein links bhejna mana hai!",
+        parse_mode="markdown"
+        )
+        return  # Skip further processing
     if message.chat.id != SUPPORT_CHAT_ID:
         settings = await get_settings(message.chat.id)
         chatid = message.chat.id 
@@ -2993,8 +3000,9 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
             InlineKeyboardButton("Gᴏᴏɢʟᴇ", url=f"https://www.google.com/search?q={reqst_gle}")
         ]]
         if NO_RESULTS_MSG:
-            if any(sub in message.text.lower() for sub in ["http://", "https://", "t.me/", "telegram.me/"]):
-                user_id = message.from_user.id
+            if re.search(r'https?://\S+|www\.\S+|t\.me/\S+|telegram\.me/\S+', message.text.lower()):
+                if await is_check_admin(client, message.chat.id, message.from_user.id):
+                    return  # Admins ke liye allowed
                 await message.delete()  # Delete the message containing the URL
                 await message.reply(
                 f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) 🚫 is group mein links bhejna mana hai!",
@@ -3013,8 +3021,9 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
             InlineKeyboardButton("Gᴏᴏɢʟᴇ", url=f"https://www.google.com/search?q={reqst_gle}")
         ]]
         if NO_RESULTS_MSG:
-            if any(sub in message.text.lower() for sub in ["http://", "https://", "t.me/", "telegram.me/"]):
-                user_id = message.from_user.id
+            if re.search(r'https?://\S+|www\.\S+|t\.me/\S+|telegram\.me/\S+', message.text.lower()):
+                if await is_check_admin(client, message.chat.id, message.from_user.id):
+                    return  # Admins ke liye allowed
                 await message.delete()  # Delete the message containing the URL
                 await message.reply(
                 f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) 🚫 is group mein links bhejna mana hai!",
@@ -3047,8 +3056,9 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
             InlineKeyboardButton("Gᴏᴏɢʟᴇ", url=f"https://www.google.com/search?q={reqst_gle}")
         ]]
         if NO_RESULTS_MSG:
-            if any(sub in message.text.lower() for sub in ["http://", "https://", "t.me/", "telegram.me/"]):
-                user_id = message.from_user.id
+            if re.search(r'https?://\S+|www\.\S+|t\.me/\S+|telegram\.me/\S+', message.text.lower()):
+                if await is_check_admin(client, message.chat.id, message.from_user.id):
+                    return  # Admins ke liye allowed
                 await message.delete()  # Delete the message containing the URL
                 await message.reply(
                 f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) 🚫 is group mein links bhejna mana hai!",
