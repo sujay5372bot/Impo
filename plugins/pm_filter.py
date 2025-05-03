@@ -35,15 +35,13 @@ SPELL_CHECK = {}
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
-    if re.search(r'https?://\S+|www\.\S+|t\.me/\S+|telegram\.me/\S+', message.text.lower()):
-        if await is_check_admin(client, message.chat.id, message.from_user.id):
-            return  # Admins ke liye allowed
-        await message.delete()  # Delete the message containing the URL
-        await message.reply(
-        f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) 🚫 is group mein links bhejna mana hai!",
-        parse_mode="markdown"
-        )
-        return  # Skip further processing
+    if message.text and re.search(r'https?://\S+|www\.\S+|t\.me/\S+|telegram\.me/\S+', message.text.lower()):
+        is_admin = await is_check_admin(client, message.chat.id, message.from_user.id)
+        await message.delete()  # Sabka message delete hoga — admin ho ya nahi
+
+        if not is_admin:
+            await message.reply(f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) 🚫 is group mein links bhejna mana hai!",parse_mode="markdown")
+            #Link 
     if message.chat.id != SUPPORT_CHAT_ID:
         settings = await get_settings(message.chat.id)
         chatid = message.chat.id 
@@ -3000,15 +2998,13 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
             InlineKeyboardButton("Gᴏᴏɢʟᴇ", url=f"https://www.google.com/search?q={reqst_gle}")
         ]]
         if NO_RESULTS_MSG:
-            if re.search(r'https?://\S+|www\.\S+|t\.me/\S+|telegram\.me/\S+', message.text.lower()):
-                if await is_check_admin(client, message.chat.id, message.from_user.id):
-                    return  # Admins ke liye allowed
-                await message.delete()  # Delete the message containing the URL
-                await message.reply(
-                f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) 🚫 is group mein links bhejna mana hai!",
-                parse_mode="markdown"
-                )
-                return  # Skip further processing
+            if message.text and re.search(r'https?://\S+|www\.\S+|t\.me/\S+|telegram\.me/\S+', message.text.lower()):
+                is_admin = await is_check_admin(client, message.chat.id, message.from_user.id)
+                await message.delete()  # Sabka message delete hoga — admin ho ya nahi
+
+                if not is_admin:
+                    await message.reply(f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) 🚫 is group mein links bhejna mana hai!",parse_mode="markdown")
+                    #Link 
             await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
         k = await reply_msg.edit_text(text=script.I_CUDNT.format(mv_rqst), reply_markup=InlineKeyboardMarkup(button))
         await asyncio.sleep(4)
@@ -3021,15 +3017,13 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
             InlineKeyboardButton("Gᴏᴏɢʟᴇ", url=f"https://www.google.com/search?q={reqst_gle}")
         ]]
         if NO_RESULTS_MSG:
-            if re.search(r'https?://\S+|www\.\S+|t\.me/\S+|telegram\.me/\S+', message.text.lower()):
-                if await is_check_admin(client, message.chat.id, message.from_user.id):
-                    return  # Admins ke liye allowed
-                await message.delete()  # Delete the message containing the URL
-                await message.reply(
-                f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) 🚫 is group mein links bhejna mana hai!",
-                parse_mode="markdown"
-                )
-                return  # Skip further processing
+            if message.text and re.search(r'https?://\S+|www\.\S+|t\.me/\S+|telegram\.me/\S+', message.text.lower()):
+                is_admin = await is_check_admin(client, message.chat.id, message.from_user.id)
+                await message.delete()  # Sabka message delete hoga — admin ho ya nahi
+
+                if not is_admin:
+                    await message.reply(f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) 🚫 is group mein links bhejna mana hai!",parse_mode="markdown")
+                    #Link 
             await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
         k = await reply_msg.edit_text(text=script.I_CUDNT.format(mv_rqst), reply_markup=InlineKeyboardMarkup(button))
         await asyncio.sleep(4)
@@ -3056,15 +3050,13 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
             InlineKeyboardButton("Gᴏᴏɢʟᴇ", url=f"https://www.google.com/search?q={reqst_gle}")
         ]]
         if NO_RESULTS_MSG:
-            if re.search(r'https?://\S+|www\.\S+|t\.me/\S+|telegram\.me/\S+', message.text.lower()):
-                if await is_check_admin(client, message.chat.id, message.from_user.id):
-                    return  # Admins ke liye allowed
-                await message.delete()  # Delete the message containing the URL
-                await message.reply(
-                f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) 🚫 is group mein links bhejna mana hai!",
-                parse_mode="markdown"
-                )
-                return  # Skip further processing
+            if message.text and re.search(r'https?://\S+|www\.\S+|t\.me/\S+|telegram\.me/\S+', message.text.lower()):
+                is_admin = await is_check_admin(client, message.chat.id, message.from_user.id)
+                await message.delete()  # Sabka message delete hoga — admin ho ya nahi
+
+                if not is_admin:
+                    await message.reply(f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) 🚫 is group mein links bhejna mana hai!",parse_mode="markdown")
+                    #Link 
             await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
         k = await reply_msg.edit_text(text=script.I_CUDNT.format(mv_rqst), reply_markup=InlineKeyboardMarkup(button))
         await asyncio.sleep(4)
