@@ -1513,6 +1513,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data.startswith("del"):
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
+        user_id = message.from_user.id
         if not files_:
             await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{user_id}\n\n🗃️",
                                                                                                        reply_markup=InlineKeyboardMarkup([
