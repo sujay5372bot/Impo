@@ -377,6 +377,7 @@ async def filter_yearss_cb_handler(client: Client, query: CallbackQuery):
     if lang != "homepage":
         search = f"{search} {lang}" 
     BUTTONS[key] = search
+    user_id = message.from_user.id
 
     files, offset, total_results = await get_search_results(chat_id, search, offset=0, filter=True)
     if not files:
@@ -537,6 +538,7 @@ async def filter_episodes_cb_handler(client: Client, query: CallbackQuery):
     if lang != "homepage":
         search = f"{search} {lang}" 
     BUTTONS[key] = search
+    user_id = message.from_user.id
 
     files, offset, total_results = await get_search_results(chat_id, search, offset=0, filter=True)
     if not files:
@@ -699,6 +701,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     if lang != "homepage":
         search = f"{search} {lang}" 
     BUTTONS[key] = search
+    user_id = message.from_user.id
 
     files, offset, total_results = await get_search_results(chat_id, search, offset=0, filter=True)
     if not files:
@@ -886,6 +889,7 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
     seas2 = "season 01" if seas == "season 1" else "season 02" if seas == "season 2" else "season 03" if seas == "season 3" else "season 04" if seas == "season 4" else "season 05" if seas == "season 5" else "season 06" if seas == "season 6" else "season 07" if seas == "season 7" else "season 08" if seas == "season 8" else "season 09" if seas == "season 9" else "s010"
     search2 = f"{search2} {seas2}"
     BUTTONS2[key] = search2
+    user_id = message.from_user.id
     files2, _, _ = await get_search_results(chat_id, search2, max_results=10)
     files2 = [file for file in files2 if re.search(seas2, file.file_name, re.IGNORECASE)]
 
@@ -1035,6 +1039,7 @@ async def filter_qualities_cb_handler(client: Client, query: CallbackQuery):
     if lang != "homepage":
         search = f"{search} {qual}" 
     BUTTONS[key] = search
+    user_id = message.from_user.id
 
     files, offset, total_results = await get_search_results(chat_id, search, offset=0, filter=True)
     # files = [file for file in files if re.search(lang, file.file_name, re.IGNORECASE)]
@@ -1399,6 +1404,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             typed = query.from_user.id
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
+        user_id = message.from_user.id
         if not files_:
             await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{user_id}\n\n🗃️",
                                                                                                        reply_markup=InlineKeyboardMarkup([
@@ -2848,6 +2854,7 @@ async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
             search = search.replace(".", "")
             files, offset, total_results = await get_search_results(message.chat.id ,search, offset=0, filter=True)
             settings = await get_settings(message.chat.id)
+            user_id = message.from_user.id
             if not files:
                 await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{user_id}\n\n🗃️",
                                                                                                        reply_markup=InlineKeyboardMarkup([
