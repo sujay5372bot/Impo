@@ -381,14 +381,14 @@ async def filter_yearss_cb_handler(client: Client, query: CallbackQuery):
 
     files, offset, total_results = await get_search_results(chat_id, search, offset=0, filter=True)
     if not files:
-        await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{user_id}\n\n🗃️",
+        await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{message.from_user.id}\n\n🗃️",
                                                                                                        reply_markup=InlineKeyboardMarkup([
-                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{user_id}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{user_id}:{requested_movie}")]
-                                                                                                                                        ]))
+                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{message.from_user.id}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{message.from_user.id}:{requested_movie}")]
+                                                                                                                                        ]))                                                                                                              ]))
         await query.answer("🚫 𝗡𝗼 𝗙𝗶𝗹𝗲 𝗪𝗲𝗿𝗲 𝗙𝗼𝘂𝗻𝗱 🚫", show_alert=1)
         return
     temp.GETALL[key] = files
@@ -542,14 +542,14 @@ async def filter_episodes_cb_handler(client: Client, query: CallbackQuery):
 
     files, offset, total_results = await get_search_results(chat_id, search, offset=0, filter=True)
     if not files:
-        await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{user_id}\n\n🗃️",
+        await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{message.from_user.id}\n\n🗃️",
                                                                                                        reply_markup=InlineKeyboardMarkup([
-                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{user_id}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{user_id}:{requested_movie}")]
-                                                                                                                                        ]))
+                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{message.from_user.id}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{message.from_user.id}:{requested_movie}")]
+                                                                                                                                        ]))                                                                                                                    ]))
         await query.answer("🚫 𝗡𝗼 𝗙𝗶𝗹𝗲 𝗪𝗲𝗿𝗲 𝗙𝗼𝘂𝗻𝗱 🚫", show_alert=1)
         return
     temp.GETALL[key] = files
@@ -897,14 +897,14 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
         files.extend(files2)
         
     if not files:
-        await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{user_id}\n\n🗃️",
+        await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{message.from_user.id}\n\n🗃️",
                                                                                                        reply_markup=InlineKeyboardMarkup([
-                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{user_id}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{user_id}:{requested_movie}")]
-                                                                                                                                        ]))
+                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{message.from_user.id}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{message.from_user.id}:{requested_movie}")]
+                                                                                                                                        ]))                                                                                                                     ]))
         await query.answer("🚫 𝗡𝗼 𝗙𝗶𝗹𝗲 𝗪𝗲𝗿𝗲 𝗙𝗼𝘂𝗻𝗱 🚫", show_alert=1)
         return
     temp.GETALL[key] = files
@@ -1044,15 +1044,14 @@ async def filter_qualities_cb_handler(client: Client, query: CallbackQuery):
     files, offset, total_results = await get_search_results(chat_id, search, offset=0, filter=True)
     # files = [file for file in files if re.search(lang, file.file_name, re.IGNORECASE)]
     if not files:
-        await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{user_id}\n\n🗃️",
+        await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{message.from_user.id}\n\n🗃️",
                                                                                                        reply_markup=InlineKeyboardMarkup([
-                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{user_id}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{user_id}:{requested_movie}")]
+                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{message.from_user.id}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{message.from_user.id}:{requested_movie}")]
                                                                                                                                         ]))
-                    
         await query.answer("🚫 𝗡𝗼 𝗙𝗶𝗹𝗲 𝗪𝗲𝗿𝗲 𝗙𝗼𝘂𝗻𝗱 🚫", show_alert=1)
         return
     temp.GETALL[key] = files
@@ -1407,15 +1406,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
         files_ = await get_file_details(file_id)
         user_id = message.from_user.id
         if not files_:
-            await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{user_id}\n\n🗃️",
+            await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{message.from_user.id}\n\n🗃️",
                                                                                                        reply_markup=InlineKeyboardMarkup([
-                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{user_id}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{user_id}:{requested_movie}")]
+                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{message.from_user.id}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{message.from_user.id}:{requested_movie}")]
                                                                                                                                         ]))
-                    
             return await query.answer('Nᴏ sᴜᴄʜ ғɪʟᴇ ᴇxɪsᴛ.')
         files = files_[0]
         title = files.file_name
@@ -2860,15 +2858,14 @@ async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
             settings = await get_settings(message.chat.id)
             user_id = message.from_user.id
             if not files:
-                await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{user_id}\n\n🗃️",
+                await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{message.from_user.id}\n\n🗃️",
                                                                                                        reply_markup=InlineKeyboardMarkup([
-                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{user_id}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{user_id}:{requested_movie}")]
+                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{message.from_user.id}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{message.from_user.id}:{requested_movie}")],
+                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{message.from_user.id}:{requested_movie}")]
                                                                                                                                         ]))
-                    
                 if settings["spell_check"]:
                     return await advantage_spell_chok(client, name, msg, reply_msg, ai_search)
                 else:
