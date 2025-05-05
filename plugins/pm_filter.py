@@ -359,6 +359,37 @@ async def filter_yearss_cb_handler(client: Client, query: CallbackQuery):
     search = FRESH.get(key)
     search = search.replace("_", " ")
     baal = lang in search
+    action, user_id = callback_query.data.split("_")[1:]
+    user_id = int(user_id)
+
+    try:
+        if action == "uploaded":
+            text = (
+                "✅ Your requested content has been uploaded.\n"
+                "Please check the channel."
+            )
+        elif action == "spellcheck":
+            text = (
+                "❌ There seems to be a spelling mistake in your request.\n"
+                "Please check the correct spelling on Google and try again."
+            )
+        elif action == "notreleased":
+            text = (
+                "⏳ The content you requested has not been released yet."
+            )
+        elif action == "processing":
+            text = (
+                "🛠️ Your request is currently being processed.\n"
+                "We’ll notify you once it’s available."
+            )
+        else:
+            text = "Invalid action."
+
+        await client.send_message(user_id, text)
+        await callback_query.answer("Message sent to the user.", show_alert=True)
+
+    except Exception:
+        await callback_query.answer("❗ The user has not started the bot yet!", show_alert=True)
     if baal:
         search = search.replace(lang, "")
     else:
@@ -520,6 +551,37 @@ async def filter_episodes_cb_handler(client: Client, query: CallbackQuery):
     search = FRESH.get(key)
     search = search.replace("_", " ")
     baal = lang in search
+    action, user_id = callback_query.data.split("_")[1:]
+    user_id = int(user_id)
+
+    try:
+        if action == "uploaded":
+            text = (
+                "✅ Your requested content has been uploaded.\n"
+                "Please check the channel."
+            )
+        elif action == "spellcheck":
+            text = (
+                "❌ There seems to be a spelling mistake in your request.\n"
+                "Please check the correct spelling on Google and try again."
+            )
+        elif action == "notreleased":
+            text = (
+                "⏳ The content you requested has not been released yet."
+            )
+        elif action == "processing":
+            text = (
+                "🛠️ Your request is currently being processed.\n"
+                "We’ll notify you once it’s available."
+            )
+        else:
+            text = "Invalid action."
+
+        await client.send_message(user_id, text)
+        await callback_query.answer("Message sent to the user.", show_alert=True)
+
+    except Exception:
+        await callback_query.answer("❗ The user has not started the bot yet!", show_alert=True)
     if baal:
         search = search.replace(lang, "")
     else:
@@ -683,6 +745,37 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     search = FRESH.get(key)
     search = search.replace("_", " ")
     baal = lang in search
+    action, user_id = callback_query.data.split("_")[1:]
+    user_id = int(user_id)
+
+    try:
+        if action == "uploaded":
+            text = (
+                "✅ Your requested content has been uploaded.\n"
+                "Please check the channel."
+            )
+        elif action == "spellcheck":
+            text = (
+                "❌ There seems to be a spelling mistake in your request.\n"
+                "Please check the correct spelling on Google and try again."
+            )
+        elif action == "notreleased":
+            text = (
+                "⏳ The content you requested has not been released yet."
+            )
+        elif action == "processing":
+            text = (
+                "🛠️ Your request is currently being processed.\n"
+                "We’ll notify you once it’s available."
+            )
+        else:
+            text = "Invalid action."
+
+        await client.send_message(user_id, text)
+        await callback_query.answer("Message sent to the user.", show_alert=True)
+
+    except Exception:
+        await callback_query.answer("❗ The user has not started the bot yet!", show_alert=True)
     if baal:
         search = search.replace(lang, "")
     else:
@@ -847,6 +940,37 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
     search = search.replace("_", " ")
     sea = ""
     season_search = ["s01","s02", "s03", "s04", "s05", "s06", "s07", "s08", "s09", "s10", "season 01","season 02","season 03","season 04","season 05","season 06","season 07","season 08","season 09","season 10", "season 1","season 2","season 3","season 4","season 5","season 6","season 7","season 8","season 9"]
+    action, user_id = callback_query.data.split("_")[1:]
+    user_id = int(user_id)
+
+    try:
+        if action == "uploaded":
+            text = (
+                "✅ Your requested content has been uploaded.\n"
+                "Please check the channel."
+            )
+        elif action == "spellcheck":
+            text = (
+                "❌ There seems to be a spelling mistake in your request.\n"
+                "Please check the correct spelling on Google and try again."
+            )
+        elif action == "notreleased":
+            text = (
+                "⏳ The content you requested has not been released yet."
+            )
+        elif action == "processing":
+            text = (
+                "🛠️ Your request is currently being processed.\n"
+                "We’ll notify you once it’s available."
+            )
+        else:
+            text = "Invalid action."
+
+        await client.send_message(user_id, text)
+        await callback_query.answer("Message sent to the user.", show_alert=True)
+
+    except Exception:
+        await callback_query.answer("❗ The user has not started the bot yet!", show_alert=True)
     for x in range (len(season_search)):
         if season_search[x] in search:
             sea = season_search[x]
@@ -1020,6 +1144,37 @@ async def filter_qualities_cb_handler(client: Client, query: CallbackQuery):
     search = FRESH.get(key)
     search = search.replace("_", " ")
     baal = qual in search
+    action, user_id = callback_query.data.split("_")[1:]
+    user_id = int(user_id)
+
+    try:
+        if action == "uploaded":
+            text = (
+                "✅ Your requested content has been uploaded.\n"
+                "Please check the channel."
+            )
+        elif action == "spellcheck":
+            text = (
+                "❌ There seems to be a spelling mistake in your request.\n"
+                "Please check the correct spelling on Google and try again."
+            )
+        elif action == "notreleased":
+            text = (
+                "⏳ The content you requested has not been released yet."
+            )
+        elif action == "processing":
+            text = (
+                "🛠️ Your request is currently being processed.\n"
+                "We’ll notify you once it’s available."
+            )
+        else:
+            text = "Invalid action."
+
+        await client.send_message(user_id, text)
+        await callback_query.answer("Message sent to the user.", show_alert=True)
+
+    except Exception:
+        await callback_query.answer("❗ The user has not started the bot yet!", show_alert=True)
     if baal:
         search = search.replace(qual, "")
     else:
@@ -1156,6 +1311,37 @@ async def filter_qualities_cb_handler(client: Client, query: CallbackQuery):
                 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
+    action, user_id = callback_query.data.split("_")[1:]
+    user_id = int(user_id)
+
+    try:
+        if action == "uploaded":
+            text = (
+                "✅ Your requested content has been uploaded.\n"
+                "Please check the channel."
+            )
+        elif action == "spellcheck":
+            text = (
+                "❌ There seems to be a spelling mistake in your request.\n"
+                "Please check the correct spelling on Google and try again."
+            )
+        elif action == "notreleased":
+            text = (
+                "⏳ The content you requested has not been released yet."
+            )
+        elif action == "processing":
+            text = (
+                "🛠️ Your request is currently being processed.\n"
+                "We’ll notify you once it’s available."
+            )
+        else:
+            text = "Invalid action."
+
+        await client.send_message(user_id, text)
+        await callback_query.answer("Message sent to the user.", show_alert=True)
+
+    except Exception:
+        await callback_query.answer("❗ The user has not started the bot yet!", show_alert=True)
     try:
         link = await client.create_chat_invite_link(int(REQST_CHANNEL))
     except:
@@ -2832,6 +3018,37 @@ async def cb_handler(client: Client, query: CallbackQuery):
     await query.answer(MSG_ALRT)
 
 async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
+    action, user_id = callback_query.data.split("_")[1:]
+    user_id = int(user_id)
+
+    try:
+        if action == "uploaded":
+            text = (
+                "✅ Your requested content has been uploaded.\n"
+                "Please check the channel."
+            )
+        elif action == "spellcheck":
+            text = (
+                "❌ There seems to be a spelling mistake in your request.\n"
+                "Please check the correct spelling on Google and try again."
+            )
+        elif action == "notreleased":
+            text = (
+                "⏳ The content you requested has not been released yet."
+            )
+        elif action == "processing":
+            text = (
+                "🛠️ Your request is currently being processed.\n"
+                "We’ll notify you once it’s available."
+            )
+        else:
+            text = "Invalid action."
+
+        await client.send_message(user_id, text)
+        await callback_query.answer("Message sent to the user.", show_alert=True)
+
+    except Exception:
+        await callback_query.answer("❗ The user has not started the bot yet!", show_alert=True)
     curr_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
     if not spoll:
         message = msg
