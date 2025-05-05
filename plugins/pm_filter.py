@@ -413,13 +413,13 @@ async def filter_yearss_cb_handler(client: Client, query: CallbackQuery):
     files, offset, total_results = await get_search_results(chat_id, search, offset=0, filter=True)
     if not files:
         await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{message.from_user.id}\n\n🗃️",
-                                                                                                       reply_markup=InlineKeyboardMarkup([
-                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{message.from_user.id}:{search.strip()}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{message.from_user.id}:{search.strip()}")]
-                                                                                                                                        ]))                                                                                                        
+        reply_markup=InlineKeyboardMarkup([
+        [InlineKeyboardButton("✅ Uploaded Done", callback_data=f"action_uploaded_{message.from_user.id}")],
+        [InlineKeyboardButton("❌ Check Your Spelling", callback_data=f"action_spellcheck_{message.from_user.id}")],
+        [InlineKeyboardButton("⏳ Not Released Yet", callback_data=f"action_notreleased_{message.from_user.id}")],
+        [InlineKeyboardButton("🛠️ Under Processing", callback_data=f"action_processing_{message.from_user.id}")],
+        [InlineKeyboardButton("💥 Close", callback_data="close_data")]
+        ]))                                                                                                     
         await query.answer("🚫 𝗡𝗼 𝗙𝗶𝗹𝗲 𝗪𝗲𝗿𝗲 𝗙𝗼𝘂𝗻𝗱 🚫", show_alert=1)
         return
     temp.GETALL[key] = files
@@ -605,13 +605,13 @@ async def filter_episodes_cb_handler(client: Client, query: CallbackQuery):
     files, offset, total_results = await get_search_results(chat_id, search, offset=0, filter=True)
     if not files:
         await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{message.from_user.id}\n\n🗃️",
-                                                                                                       reply_markup=InlineKeyboardMarkup([
-                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{message.from_user.id}:{search.strip()}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{message.from_user.id}:{search.strip()}")]
-                                                                                                                                        ]))
+        reply_markup=InlineKeyboardMarkup([
+        [InlineKeyboardButton("✅ Uploaded Done", callback_data=f"action_uploaded_{message.from_user.id}")],
+        [InlineKeyboardButton("❌ Check Your Spelling", callback_data=f"action_spellcheck_{message.from_user.id}")],
+        [InlineKeyboardButton("⏳ Not Released Yet", callback_data=f"action_notreleased_{message.from_user.id}")],
+        [InlineKeyboardButton("🛠️ Under Processing", callback_data=f"action_processing_{message.from_user.id}")],
+        [InlineKeyboardButton("💥 Close", callback_data="close_data")]
+        ]))
         await query.answer("🚫 𝗡𝗼 𝗙𝗶𝗹𝗲 𝗪𝗲𝗿𝗲 𝗙𝗼𝘂𝗻𝗱 🚫", show_alert=1)
         return
     temp.GETALL[key] = files
@@ -799,14 +799,13 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     files, offset, total_results = await get_search_results(chat_id, search, offset=0, filter=True)
     if not files:
         await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{message.from_user.id}\n\n🗃️",
-                                                                                                       reply_markup=InlineKeyboardMarkup([
-                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{message.from_user.id}:{search.strip()}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{message.from_user.id}:{search.strip()}")]
-                                                                                                                                        ]))
-        await query.answer("🚫 𝗡𝗼 𝗙𝗶𝗹𝗲 𝗪𝗲𝗿𝗲 𝗙𝗼𝘂𝗻𝗱 🚫", show_alert=1)
+        reply_markup=InlineKeyboardMarkup([
+        [InlineKeyboardButton("✅ Uploaded Done", callback_data=f"action_uploaded_{message.from_user.id}")],
+        [InlineKeyboardButton("❌ Check Your Spelling", callback_data=f"action_spellcheck_{message.from_user.id}")],
+        [InlineKeyboardButton("⏳ Not Released Yet", callback_data=f"action_notreleased_{message.from_user.id}")],
+        [InlineKeyboardButton("🛠️ Under Processing", callback_data=f"action_processing_{message.from_user.id}")],
+        [InlineKeyboardButton("💥 Close", callback_data="close_data")]
+        ]))
         return
     temp.GETALL[key] = files
     settings = await get_settings(message.chat.id)
@@ -1022,13 +1021,13 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
         
     if not files:
         await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{message.from_user.id}\n\n🗃️",
-                                                                                                       reply_markup=InlineKeyboardMarkup([
-                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{message.from_user.id}:{search.strip()}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{message.from_user.id}:{search.strip()}")]
-                                                                                                                                        ]))
+        reply_markup=InlineKeyboardMarkup([
+        [InlineKeyboardButton("✅ Uploaded Done", callback_data=f"action_uploaded_{message.from_user.id}")],
+        [InlineKeyboardButton("❌ Check Your Spelling", callback_data=f"action_spellcheck_{message.from_user.id}")],
+        [InlineKeyboardButton("⏳ Not Released Yet", callback_data=f"action_notreleased_{message.from_user.id}")],
+        [InlineKeyboardButton("🛠️ Under Processing", callback_data=f"action_processing_{message.from_user.id}")],
+        [InlineKeyboardButton("💥 Close", callback_data="close_data")]
+        ]))
         await query.answer("🚫 𝗡𝗼 𝗙𝗶𝗹𝗲 𝗪𝗲𝗿𝗲 𝗙𝗼𝘂𝗻𝗱 🚫", show_alert=1)
         return
     temp.GETALL[key] = files
@@ -1200,13 +1199,13 @@ async def filter_qualities_cb_handler(client: Client, query: CallbackQuery):
     # files = [file for file in files if re.search(lang, file.file_name, re.IGNORECASE)]
     if not files:
         await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{message.from_user.id}\n\n🗃️",
-                                                                                                       reply_markup=InlineKeyboardMarkup([
-                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{message.from_user.id}:{search.strip()}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{message.from_user.id}:{search.strip()}")]
-                                                                                                                                        ]))
+        reply_markup=InlineKeyboardMarkup([
+        [InlineKeyboardButton("✅ Uploaded Done", callback_data=f"action_uploaded_{message.from_user.id}")],
+        [InlineKeyboardButton("❌ Check Your Spelling", callback_data=f"action_spellcheck_{message.from_user.id}")],
+        [InlineKeyboardButton("⏳ Not Released Yet", callback_data=f"action_notreleased_{message.from_user.id}")],
+        [InlineKeyboardButton("🛠️ Under Processing", callback_data=f"action_processing_{message.from_user.id}")],
+        [InlineKeyboardButton("💥 Close", callback_data="close_data")]
+        ]))
         await query.answer("🚫 𝗡𝗼 𝗙𝗶𝗹𝗲 𝗪𝗲𝗿𝗲 𝗙𝗼𝘂𝗻𝗱 🚫", show_alert=1)
         return
     temp.GETALL[key] = files
@@ -1593,13 +1592,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
         user_id = message.from_user.id
         if not files_:
             await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{message.from_user.id}\n\n🗃️",
-                                                                                                       reply_markup=InlineKeyboardMarkup([
-                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{message.from_user.id}:{search.strip()}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{message.from_user.id}:{search.strip()}")]
-                                                                                                                                        ]))
+        reply_markup=InlineKeyboardMarkup([
+        [InlineKeyboardButton("✅ Uploaded Done", callback_data=f"action_uploaded_{message.from_user.id}")],
+        [InlineKeyboardButton("❌ Check Your Spelling", callback_data=f"action_spellcheck_{message.from_user.id}")],
+        [InlineKeyboardButton("⏳ Not Released Yet", callback_data=f"action_notreleased_{message.from_user.id}")],
+        [InlineKeyboardButton("🛠️ Under Processing", callback_data=f"action_processing_{message.from_user.id}")],
+        [InlineKeyboardButton("💥 Close", callback_data="close_data")]
+        ]))
             return await query.answer('Nᴏ sᴜᴄʜ ғɪʟᴇ ᴇxɪsᴛ.')
         files = files_[0]
         title = files.file_name
@@ -1702,14 +1701,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
         user_id = message.from_user.id
         if not files_:
             await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{message.from_user.id}\n\n🗃️",
-                                                                                                       reply_markup=InlineKeyboardMarkup([
-                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{message.from_user.id}:{search.strip()}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{message.from_user.id}:{search.strip()}")]
-                                                                                                                                        ]))
-                    
+        reply_markup=InlineKeyboardMarkup([
+        [InlineKeyboardButton("✅ Uploaded Done", callback_data=f"action_uploaded_{message.from_user.id}")],
+        [InlineKeyboardButton("❌ Check Your Spelling", callback_data=f"action_spellcheck_{message.from_user.id}")],
+        [InlineKeyboardButton("⏳ Not Released Yet", callback_data=f"action_notreleased_{message.from_user.id}")],
+        [InlineKeyboardButton("🛠️ Under Processing", callback_data=f"action_processing_{message.from_user.id}")],
+        [InlineKeyboardButton("💥 Close", callback_data="close_data")]
+        ]))
             return await query.answer('Nᴏ sᴜᴄʜ ғɪʟᴇ ᴇxɪsᴛ.')
         files = files_[0]
         title = files.file_name
@@ -3076,13 +3074,13 @@ async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
             user_id = message.from_user.id
             if not files:
                 await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID**:{message.from_user.id}\n\n🗃️",
-                                                                                                       reply_markup=InlineKeyboardMarkup([
-                                                                                                                                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{message.from_user.id}:{search.strip()}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{message.from_user.id}:{search.strip()}")],
-                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{message.from_user.id}:{search.strip()}")]
-                                                                                                                                        ]))
+        reply_markup=InlineKeyboardMarkup([
+        [InlineKeyboardButton("✅ Uploaded Done", callback_data=f"action_uploaded_{message.from_user.id}")],
+        [InlineKeyboardButton("❌ Check Your Spelling", callback_data=f"action_spellcheck_{message.from_user.id}")],
+        [InlineKeyboardButton("⏳ Not Released Yet", callback_data=f"action_notreleased_{message.from_user.id}")],
+        [InlineKeyboardButton("🛠️ Under Processing", callback_data=f"action_processing_{message.from_user.id}")],
+        [InlineKeyboardButton("💥 Close", callback_data="close_data")]
+        ]))
                 if settings["spell_check"]:
                     return await advantage_spell_chok(client, name, msg, reply_msg, ai_search)
                 else:
