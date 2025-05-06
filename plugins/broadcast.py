@@ -72,7 +72,7 @@ async for group in groups:
 
 time_taken = datetime.timedelta(seconds=int(time.time() - start_time))
 await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nTotal Groups {total_groups}\nCompleted: {done} / {total_groups}\nSuccess: {success}") #Update these utility functions in utils.py:
-
+#
 async def broadcast_messages(user_id, message, should_pin=False): 
 try: 
     sent_msg = await message.copy(chat_id=user_id) 
