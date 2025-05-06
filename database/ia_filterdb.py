@@ -69,8 +69,12 @@ async def choose_mediaDB():
         logger.info("Using second db (Media2)")
         saveMedia = Media2
 
-async def save_file(media):
-    """Save file in database"""
+async def save_file(file_info):
+    media = file_info["media"]
+    file_type = file_info["file_type"]
+    caption = file_info["caption"]
+    
+    # Proceed with your saving logic using media, file_type, and caption
 
     # TODO: Find better way to get same file_id for same media to avoid duplicates
     file_id, file_ref = unpack_new_file_id(media.file_id)
