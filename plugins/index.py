@@ -55,8 +55,9 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
     unsupported = 0 
     batch_size = 20 
 async with lock: 
-try: 
-    current = temp.CURRENT temp.CANCEL = False
+    try: 
+        current = temp.CURRENT 
+        temp.CANCEL = False
 
 while current <= lst_msg_id:
             if temp.CANCEL:
