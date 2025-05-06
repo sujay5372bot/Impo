@@ -7,7 +7,11 @@ from database.users_chats_db import db
 from info import ADMINS 
 from utils import broadcast_messages, broadcast_messages_group
 
-@Client.on_message(filters.command("broadcast") & filters.user(ADMINS)) async def pm_broadcast(bot, message): b_msg = await bot.ask(chat_id=message.from_user.id, text="Now Send Me Your Broadcast Message") pin_msg = await bot.ask(chat_id=message.from_user.id, text="Do you want to pin the message? (yes/no)") should_pin = pin_msg.text.lower() in ["yes", "y"]
+@Client.on_message(filters.command("broadcast") & filters.user(ADMINS))
+async def pm_broadcast(bot, message): 
+    b_msg = await bot.ask(chat_id=message.from_user.id, text="Now Send Me Your Broadcast Message") 
+    pin_msg = await bot.ask(chat_id=message.from_user.id, text="Do you want to pin the message? (yes/no)") 
+    should_pin = pin_msg.text.lower() in ["yes", "y"]
 
 try:
     users = await db.get_all_users()
@@ -42,7 +46,11 @@ try:
 except Exception as e:
     print(f"error: {e}")
 
-@Client.on_message(filters.command("grp_broadcast") & filters.user(ADMINS)) async def broadcast_group(bot, message): b_msg = await bot.ask(chat_id=message.from_user.id, text="Now Send Me Your Broadcast Message") pin_msg = await bot.ask(chat_id=message.from_user.id, text="Do you want to pin the message? (yes/no)") should_pin = pin_msg.text.lower() in ["yes", "y"]
+@Client.on_message(filters.command("grp_broadcast") & filters.user(ADMINS)) 
+async def broadcast_group(bot, message): 
+    b_msg = await bot.ask(chat_id=message.from_user.id, text="Now Send Me Your Broadcast Message") 
+    pin_msg = await bot.ask(chat_id=message.from_user.id, text="Do you want to pin the message? (yes/no)") 
+    should_pin = pin_msg.text.lower() in ["yes", "y"]
 
 groups = await db.get_all_chats()
 sts = await message.reply_text("Broadcasting your messages To Groups...")
