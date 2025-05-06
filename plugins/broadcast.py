@@ -52,26 +52,29 @@ async def broadcast_group(bot, message):
     pin_msg = await bot.ask(chat_id=message.from_user.id, text="Do you want to pin the message? (yes/no)") 
     should_pin = pin_msg.text.lower() in ["yes", "y"]
 
-groups = await db.get_all_chats()
-sts = await message.reply_text("Broadcasting your messages To Groups...")
-start_time = time.time()
-total_groups = await db.total_chat_count()
-done = failed = success = 0
+    try:
+        groups = await db.get_all_chats()
+        sts = await message.reply_text("Broadcasting your messages To Groups...")
+        start_time = time.time()
+        total_groups = await db.total_chat_count()
+        done = failed = success = 0
 
-async for group in groups:
-    pti, sh = await broadcast_messages_group(int(group['id']), b_msg, should_pin)
-    await asyncio.sleep(0.5)  # 0.5 second delay
-    if pti:
-        success += 1
-    elif sh == "Error":
-        failed += 1
-    done += 1
+        async for group in groups:
+            pti, sh = await broadcast_messages_group(int(group['id']), b_msg, should_pin)
+            await asyncio.sleep(0.5)  # 0.5 second delay
+            if pti:
+                success += 1
+            elif sh == "Error":
+                failed += 1
+            done += 1
 
-    if not done % 20:
-        await sts.edit(f"Broadcast in progress:\n\nTotal Groups {total_groups}\nCompleted: {done} / {total_groups}\nSuccess: {success}")
+            if not done % 20:
+                await sts.edit(f"Broadcast in progress:\n\nTotal Groups {total_groups}\nCompleted: {done} / {total_groups}\nSuccess: {success}")
 
-time_taken = datetime.timedelta(seconds=int(time.time() - start_time))
-await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nTotal Groups {total_groups}\nCompleted: {done} / {total_groups}\nSuccess: {success}") #Update these utility functions in utils.py:
+        time_taken = datetime.timedelta(seconds=int(time.time() - start_time))
+        await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nTotal Groups: {total_groups}\nCompleted: {done} / {total_groups}\nSuccess: {success}")
+    except Exception as e:
+        print(f"error: {e}")
 #
 async def broadcast_messages(user_id, message, should_pin=False): 
     try: 
