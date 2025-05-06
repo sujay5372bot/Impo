@@ -11,6 +11,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 lock = asyncio.Lock()
 
+
 @Client.on_callback_query(filters.regex(r'^index'))
 async def index_files(bot, query):
     if query.data.startswith('index_cancel'):
@@ -41,7 +42,7 @@ async def index_files(bot, query):
             reply_to_message_id=int(lst_msg_id)
         )
 
-    msg = query.message  # Important: needed for edits
+    msg = query.message
 
     await msg.edit(
         "Starting Indexing",
@@ -53,7 +54,7 @@ async def index_files(bot, query):
     try:
         chat = int(chat)
     except ValueError:
-        pass  # use as string if not int
+        pass
 
     await index_files_to_db(int(lst_msg_id), chat, msg, bot)
 
@@ -132,7 +133,9 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
                     f"Deleted: <code>{deleted}</code>\n"
                     f"Non-Media: <code>{no_media + unsupported}</code> (Unsupported: {unsupported})\n"
                     f"Errors: <code>{errors}</code>",
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Cancel', callback_data='index_cancel')]])
+                    reply_markup=InlineKeyboardMarkup(
+                        [[InlineKeyboardButton('Cancel', callback_data='index_cancel')]]
+                    )
                 )
 
         except Exception as e:
@@ -140,9 +143,10 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
             await msg.edit(f'Error: {e}')
         else:
             await msg.edit(
-                f'\u2705 Indexing Complete!\n\nSaved: <code>{total_files}</code>\n"
-                f'Duplicates: <code>{duplicate}</code>\n"
-                f'Deleted: <code>{deleted}</code>\n"
-                f'Skipped (non-media): <code>{no_media + unsupported}</code>\n"
+                f'✅ Indexing Complete!\n\n'
+                f'Saved: <code>{total_files}</code>\n'
+                f'Duplicates: <code>{duplicate}</code>\n'
+                f'Deleted: <code>{deleted}</code>\n'
+                f'Skipped (non-media): <code>{no_media + unsupported}</code>\n'
                 f'Errors: <code>{errors}</code>'
             )
