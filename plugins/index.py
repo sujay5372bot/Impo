@@ -10,11 +10,13 @@ from info import INDEX_REQ_CHANNEL as LOG_CHANNEL
 from database.ia_filterdb import save_file 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-logger = logging.getLogger(__name__) logger.setLevel(logging.INFO) lock = asyncio.Lock()
+logger = logging.getLogger(__name__) 
+logger.setLevel(logging.INFO) 
+lock = asyncio.Lock()
 
 @Client.on_callback_query(filters.regex(r'^index')) 
 async def index_files(bot, query): 
-if query.data.startswith('index_cancel'): 
+    if query.data.startswith('index_cancel'): 
     temp.CANCEL = True 
     return await query.answer("Cancelling Indexing") 
 _, raju, chat, lst_msg_id, from_user = query.data.split("#") 
@@ -24,9 +26,8 @@ _, raju, chat, lst_msg_id, from_user = query.data.split("#")
         return
 
 if lock.locked():
-    return 
     await query.answer('Wait until previous process complete.', show_alert=True)
-msg = query.message
+    return
 
 await query.answer('Processing...⏳', show_alert=True)
 if int(from_user) not in ADMINS:
