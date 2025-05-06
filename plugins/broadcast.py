@@ -74,20 +74,30 @@ time_taken = datetime.timedelta(seconds=int(time.time() - start_time))
 await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nTotal Groups {total_groups}\nCompleted: {done} / {total_groups}\nSuccess: {success}") #Update these utility functions in utils.py:
 #
 async def broadcast_messages(user_id, message, should_pin=False): 
-try: 
-    sent_msg = await message.copy(chat_id=user_id) 
-    if should_pin: 
-try: 
-    await message._client.pin_chat_message(chat_id=user_id, message_id=sent_msg.id, disable_notification=True) 
-    except: 
-        pass  # ignore pin error return True, "Success" except Exception as e: if "bot was blocked by the user" in str(e): return False, "Blocked" elif "chat not found" in str(e): return False, "Deleted" else: return False, "Error"
+    try: 
+        sent_msg = await message.copy(chat_id=user_id) 
+        if should_pin: 
+            try: 
+                await message._client.pin_chat_message(chat_id=user_id, message_id=sent_msg.id, disable_notification=True) 
+            except: 
+                pass  # ignore pin error 
+        return True, "Success"
+    except Exception as e: 
+        if "bot was blocked by the user" in str(e): 
+            return False, "Blocked"
+        elif "chat not found" in str(e): 
+            return False, "Deleted"
+        else: 
+            return False, "Error"
 
 async def broadcast_messages_group(chat_id, message, should_pin=False): 
-try: 
-    sent_msg = await message.copy(chat_id=chat_id) 
-if should_pin: 
-try: 
-    await message._client.pin_chat_message(chat_id=chat_id, message_id=sent_msg.id, disable_notification=True) 
-except: 
-pass  # ignore pin error return True, "Success" except: return False, "Error"
-                           
+    try: 
+        sent_msg = await message.copy(chat_id=chat_id) 
+        if should_pin: 
+            try: 
+                await message._client.pin_chat_message(chat_id=chat_id, message_id=sent_msg.id, disable_notification=True) 
+            except: 
+                pass  # ignore pin error 
+        return True, "Success"
+    except: 
+        return False, "Error"
