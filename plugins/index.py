@@ -86,8 +86,9 @@ while current <= lst_msg_id:
                     unsupported += 1
                     return
 
-                media.file_type = message.media.value
-                media.caption = message.caption
+# Safe to assign attributes now
+media.file_type = message.media.value
+media.caption = message.caption
                 aynav, vnay = await save_file(media)
                 if aynav:
                     total_files += 1
