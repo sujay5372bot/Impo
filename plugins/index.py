@@ -89,9 +89,12 @@ while current <= lst_msg_id:
                     return
 
 # Safe to assign attributes now
-media.file_type = message.media.value
-media.caption = message.caption
-                aynav, vnay = await save_file(media)
+file_info = {
+    "file_type": message.media.value,
+    "caption": message.caption,
+    "media": media
+}
+aynav, vnay = await save_file(file_info)
                 if aynav:
                     total_files += 1
                 elif vnay == 0:
