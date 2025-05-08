@@ -69,10 +69,8 @@ async def choose_mediaDB():
         logger.info("Using second db (Media2)")
         saveMedia = Media2
 
-async def save_file(file_info):
-    media = file_info["media"]
-    file_type = file_info["file_type"]
-    caption = file_info["caption"]
+async def save_file(media):
+    """Save file in database"""
     
     # Proceed with your saving logic using media, file_type, and caption
 
