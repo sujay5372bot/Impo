@@ -115,7 +115,7 @@ async def pm_text(bot, message):
         await run_save(bot, user_id, content, value) 
         await db.set_save(user_id, save=False)
         return 
-    if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
+    if content.startswith("/") or content.startswith("#") or content.startswith("https"): return  # ignore commands and hashtags
     if PM_SEARCH == True:
         ai_search = True
         reply_msg = await bot.send_message(message.from_user.id, f"<b><i>Searching For {content} 🔍</i></b>", reply_to_message_id=message.id)
