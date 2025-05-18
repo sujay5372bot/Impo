@@ -94,9 +94,10 @@ async def pm_text(bot, message):
         try:
             link = get_link(content)
             if not link:
-                if content.startswith("/") or content.startswith("#") or content.startswith("https"):  # ignore commands and hashtags and https://
-                    await bot.delete_message(chat_id=message.chat.id, message_ids=message.id)
-                    return
+                igon = if content.startswith("/") or content.startswith("#") or content.startswith("https"):  # ignore commands and hashtags and https://
+                await igon.delete()
+                 # await bot.delete_message(chat_id=message.chat.id, message_ids=message.id)
+                  #  return
                 if PM_SEARCH == True:
                     ai_search = True
                     reply_msg = await bot.send_message(message.from_user.id, f"<b><i>Searching For {content} 🔍</i></b>", reply_to_message_id=message.id)
@@ -117,9 +118,10 @@ async def pm_text(bot, message):
         await run_save(bot, user_id, content, value) 
         await db.set_save(user_id, save=False)
         return 
-    if content.startswith("/") or content.startswith("#") or content.startswith("https"):  # ignore commands and hashtags and https://
-        await bot.delete_message(chat_id=message.chat.id, message_ids=message.id)
-        return
+   igon = if content.startswith("/") or content.startswith("#") or content.startswith("https"):  # ignore commands and hashtags and https://
+              await igon.delete()
+       # await bot.delete_message(chat_id=message.chat.id, message_ids=message.id)
+       # return
     if PM_SEARCH == True:
         ai_search = True
         reply_msg = await bot.send_message(message.from_user.id, f"<b><i>Searching For {content} 🔍</i></b>", reply_to_message_id=message.id)
