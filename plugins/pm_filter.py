@@ -94,8 +94,8 @@ async def pm_text(bot, message):
         try:
             link = get_link(content)
             if not link:
-                igon = if content.startswith("/") or content.startswith("#") or content.startswith("https"):  # ignore commands and hashtags and https://
-                await igon.delete()
+                if content.startswith("/") or content.startswith("#") or content.startswith("https"):  # ignore commands and hashtags and https://
+                    await message.delete()
                  # await bot.delete_message(chat_id=message.chat.id, message_ids=message.id)
                   #  return
                 if PM_SEARCH == True:
@@ -118,8 +118,8 @@ async def pm_text(bot, message):
         await run_save(bot, user_id, content, value) 
         await db.set_save(user_id, save=False)
         return 
-   igon = if content.startswith("/") or content.startswith("#") or content.startswith("https"):  # ignore commands and hashtags and https://
-              await igon.delete()
+    if content.startswith("/") or content.startswith("#") or content.startswith("https"):  # ignore commands and hashtags and https://
+        await message.delete()
        # await bot.delete_message(chat_id=message.chat.id, message_ids=message.id)
        # return
     if PM_SEARCH == True:
