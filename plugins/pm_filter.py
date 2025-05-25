@@ -2806,7 +2806,14 @@ async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
             files, offset, total_results = await get_search_results(message.chat.id ,search, offset=0, filter=True)
             settings = await get_settings(message.chat.id)
             if not files:
-                await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID : **{message.from_user.id}\n\n🗃️",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔺 Mark as Done 🔺", callback_data="close_data")]]))
+                await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID : **{message.from_user.id}\n\n🗃️",
+                                          reply_markup=InlineKeyboardMarkup([
+                                                                           [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{user_id}:{requested_movie}")],
+                                                                           [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{user_id}:{requested_movie}")],
+                                                                           [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{user_id}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{user_id}:{requested_movie}")],
+                                                                           [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{user_id}:{requested_movie}")],
+                                                                           [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{user_id}:{requested_movie}")]
+                                                                           ]))
                 if settings["spell_check"]:
                     return await advantage_spell_chok(client, name, msg, reply_msg, ai_search)
                 else:
