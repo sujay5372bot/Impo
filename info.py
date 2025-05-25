@@ -74,6 +74,7 @@ GRP_LNK = environ.get('GRP_LNK', 'https://t.me/sujay8372')
 CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/+dN2NYcg1SUQzNWQ9')
 TUTORIAL = environ.get('TUTORIAL', 'https://t.me/sujay8372')
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', '-1004747355212') # Support Chat Link Without https:// or @
+MOVIE_GROUP_USERNAME = environ.get('MOVIE_GROUP_USERNAME', "sujay8372") #[ without @ or https://]
 
 
 # Clone Information : If Clone Mode Is True Then Bot Clone Other Bots.
