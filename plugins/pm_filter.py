@@ -2967,6 +2967,8 @@ async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
             return
         if len(message.text) < 100:
             search = name
+            requested_movie = search.strip()
+            user_id = message.from_user.id
             search = search.lower()
             find = search.split(" ")
             search = ""
