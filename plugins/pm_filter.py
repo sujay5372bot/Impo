@@ -1128,15 +1128,15 @@ async def handle_notify_user_callback(client, query):
     movie_name = data[2]
 
     if action == "notify_user_req_rcvd":
-        await client.send_message(user_id, f"✅ I have received your request:\n\n 📋📦**Movie:** `{movie_name}`")
+        await client.send_message(user_id, f"Hey \n\nYour movie **{movie_name}**\n\nrequest received✅")
     elif action == "notify_user_uplo":
-        await client.send_message(user_id, f"✅ Your content has been uploaded:\n\n 📋📦**Movie:** `{movie_name}`")
+        await client.send_message(user_id, f"Hey \n\nYour movie **{movie_name}**\n\nUpdated ✅")
     elif action == "notify_user_alrupl":
-        await client.send_message(user_id, f"⚡Your content has been uploaded:\n\n **📋📦**Movie**: `{movie_name}`")
+        await client.send_message(user_id, f"Hey \n\nYour movie **{movie_name}**\n\nalready updated ✅")
     elif action == "notify_user_spelling_error":
-        await client.send_message(user_id, f"🖊 it seems the spelling is wrong:\n\n **📋📦**Movie:** `{movie_name}`")
+        await client.send_message(user_id, f"Hey \n\nYour movie **{movie_name}**\n\nSpelling is wrong ✅\n\nGo to Google and check your spelling <a href=https://google.com/{movie_name}>Google 🔍</a>")
     elif action == "notify_user_not_avail":
-        await client.send_message(user_id, f"🙇‍♂️ This Movie is Not Available:\n\n 📋📦**Movie:** `{movie_name}`")
+        await client.send_message(user_id, f"Hey \n\nYour movie **{movie_name}**\n\nNot available 🥴")
    # elif action == "notify_user_req_rejected":
     #    await client.send_message(user_id, f"✅ Your Requested Movie is Uploaded:\n **📋📦Movie**: `{movie_name}`")
     
