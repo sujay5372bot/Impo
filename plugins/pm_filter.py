@@ -1126,17 +1126,18 @@ async def handle_notify_user_callback(client, query):
     action = data[0]  # jaise 'notify_userupl'
     user_id = int(data[1])
     movie_name = data[2]
+    user_name = message.from_user.first_name
 
     if action == "notify_user_req_rcvd":
-        await client.send_message(user_id, f"Hey \n\nYour movie **{movie_name}**\n\nrequest received✅")
+        await client.send_message(user_id, f"Hey {user_name}\n\nYour movie **{movie_name}**\n\nrequest received✅")
     elif action == "notify_user_uplo":
-        await client.send_message(user_id, f"Hey \n\nYour movie **{movie_name}**\n\nUpdated ✅")
+        await client.send_message(user_id, f"Hey {user_name}\n\nYour movie **{movie_name}**\n\nUpdated ✅")
     elif action == "notify_user_alrupl":
-        await client.send_message(user_id, f"Hey \n\nYour movie **{movie_name}**\n\nalready updated ✅")
+        await client.send_message(user_id, f"Hey {user_name}\n\nYour movie **{movie_name}**\n\nalready updated ✅")
     elif action == "notify_user_spelling_error":
-        await client.send_message(user_id, f"Hey \n\nYour movie **{movie_name}**\n\nSpelling is wrong ✅\n\nGo to Google and check your spelling <a href=https://google.com/{movie_name}>Google 🔍</a>")
+        await client.send_message(user_id, f"Hey {user_name}\n\nYour movie **{movie_name}**\n\nSpelling is wrong ✅\n\nGo to Google and check your spelling <a href=https://www.google.com/{movie_name}>Google 🔍</a>")
     elif action == "notify_user_not_avail":
-        await client.send_message(user_id, f"Hey \n\nYour movie **{movie_name}**\n\nNot available 🥴")
+        await client.send_message(user_id, f"Hey {user_name}\n\nYour movie **{movie_name}**\n\nNot available 🥴")
    # elif action == "notify_user_req_rejected":
     #    await client.send_message(user_id, f"✅ Your Requested Movie is Uploaded:\n **📋📦Movie**: `{movie_name}`")
     
