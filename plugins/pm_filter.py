@@ -1128,17 +1128,17 @@ async def handle_notify_user_callback(client, query):
     movie_name = data[2]
 
     if action == "notify_user_req_rcvd":
-        await client.send_message(user_id, f"✅ I have received your request: {movie_name}")
-    elif action == "notify_userupl":
-        await client.send_message(user_id, f"✅ Your content has been uploaded: {movie_name}")
+        await client.send_message(user_id, f"✅ I have received your request:\n **📋📦Movie**: `{movie_name}`")
+    elif action == "notify_user_req_rcv":
+        await client.send_message(user_id, f"✅ Your content has been uploaded:\n **📋📦Movie**: `{movie_name}`")
     elif action == "notify_user_alrupl":
-        await client.send_message(user_id, f"⚡Your content has been uploaded: {movie_name}")
+        await client.send_message(user_id, f"⚡Your content has been uploaded:\n **📋📦Movie**: `{movie_name}`")
     elif action == "notify_user_spelling_error":
-        await client.send_message(user_id, f"🖊 it seems the spelling is wrong: {movie_name}")
+        await client.send_message(user_id, f"🖊 it seems the spelling is wrong:\n **📋📦Movie**: `{movie_name}`")
     elif action == "notify_user_not_avail":
-        await client.send_message(user_id, f"🙇‍♂️ This Movie is Not Available: {movie_name}")
-    elif action == "notify_user_req_rejected":
-        await client.send_message(user_id, f"✅ Your Requested Movie is Uploaded:\n **📋📦Movie**: `{search}`")
+        await client.send_message(user_id, f"🙇‍♂️ This Movie is Not Available:\n **📋📦Movie**: `{movie_name}`")
+   # elif action == "notify_user_req_rejected":
+    #    await client.send_message(user_id, f"✅ Your Requested Movie is Uploaded:\n **📋📦Movie**: `{movie_name}`")
     
     await query.answer("Notification sent!")  # user ko short popup bhi milega
 
@@ -3012,11 +3012,11 @@ async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
                 await client.send_message(req_channel,f"🦋 **#REQUESTED_CONTENT** 🦋,\n\n📝**CONTENT NAME** : `{search}`\n**REQUESTED BY** : {message.from_user.first_name}\n **USER ID : **{message.from_user.id}\n\n🗃️",
                                           reply_markup=InlineKeyboardMarkup([
                                                                            [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{user_id}:{requested_movie}")],
-                                                                           [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{user_id}:{requested_movie}")],
+                                                                           [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_user_req_rcv:{user_id}:{requested_movie}")],
                                                                            [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{user_id}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{user_id}:{requested_movie}")],
                                                                            [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{user_id}:{requested_movie}")],
                                                                           # [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{user_id}:{requested_movie}")]
-                                                                           [InlineKeyboardButton("✅Upload Done Working..", callback_data=f"notify_user_req_rejected:{user_id}:{requested_movie}")]
+                                                                          # [InlineKeyboardButton("✅Upload Done Working..", callback_data=f"notify_user_req_rejected:{user_id}:{requested_movie}")]
                                                                            ]))
                 if settings["spell_check"]:
                     return await advantage_spell_chok(client, name, msg, reply_msg, ai_search)
