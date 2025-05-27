@@ -1120,6 +1120,28 @@ async def filter_qualities_cb_handler(client: Client, query: CallbackQuery):
         pass
     await query.answer()
 
+@Client.on_callback_query(filters.regex(r"^notify_user_"))
+async def handle_notify_user_callback(client, query):
+    data = query.data.split(":")
+    action = data[0]  # jaise 'notify_userupl'
+    user_id = int(data[1])
+    movie_name = data[2]
+
+    if action == "notify_user_req_rcvd":
+        await client.send_message(user_id, f"✅ Tumhara request mil gaya hai: {movie_name}")
+    elif action == "notify_userupl":
+        await client.send_message(user_id, f"✅ Tumhara content upload ho chuka hai: {movie_name}")
+    elif action == "notify_user_alrupl":
+        await client.send_message(user_id, f"⚡Ye content pehle se upload hai: {movie_name}")
+    elif action == "notify_user_spelling_error":
+        await client.send_message(user_id, f"🖊 Lagta hai spelling galat hai: {movie_name}")
+    elif action == "notify_user_not_avail":
+        await client.send_message(user_id, f"😒 Maaf karo, ye content abhi available nahi hai: {movie_name}")
+    elif action == "notify_user_req_rejected":
+        await client.send_message(user_id, f"❌ Tumhara request reject kar diya gaya hai: {movie_name}")
+    
+    await query.answer("Notification sent!")  # user ko short popup bhi milega
+
                 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
