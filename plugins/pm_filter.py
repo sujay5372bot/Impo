@@ -3015,9 +3015,10 @@ async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
                                                                            [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_user_uplo:{user_id}:{requested_movie}")],
                                                                            [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{user_id}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{user_id}:{requested_movie}")],
                                                                            [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{user_id}:{requested_movie}")],
+                                                                           [InlineKeyboardBitton(text=f"❌Close", callback_data="close_data")]
                                                                           # [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{user_id}:{requested_movie}")]
                                                                           # [InlineKeyboardButton("✅Upload Done Working..", callback_data=f"notify_user_req_rejected:{user_id}:{requested_movie}")]
-                                                 callback_data="close_data"]))
+                                                                           ]))
                 if settings["spell_check"]:
                     return await advantage_spell_chok(client, name, msg, reply_msg, ai_search)
                 else:
