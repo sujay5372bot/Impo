@@ -1120,7 +1120,7 @@ async def filter_qualities_cb_handler(client: Client, query: CallbackQuery):
         pass
     await query.answer()
 
-@Client.on_callback_query(filters.regex(r"^notify_user_") & filters.user(ADMINS))
+@Client.on_callback_query(filters.regex(r"^notify_user_"))
 async def handle_notify_user_callback(client, query):
     data = query.data.split(":")
     action = data[0]  # jaise 'notify_userupl'
