@@ -1126,7 +1126,8 @@ async def handle_notify_user_callback(client, query):
     action = data[0]  # jaise 'notify_userupl'
     user_id = int(data[1])
     movie_name = data[2]
-    user = message.from_user.first_name
+    user = query.from_user.first_name
+    movie_name_url = quote_plus(movie_name)
 
     if action == "notify_user_req_rcvd":
         await client.send_message(user_id, f"📜Hey {user}\n\n📦Your movie **{movie_name}**\n\n<blockquote>request received✅</blockquote>")
@@ -1135,7 +1136,7 @@ async def handle_notify_user_callback(client, query):
     elif action == "notify_user_alrupl":
         await client.send_message(user_id, f"📜Hey {user}\n\n📦Your movie **{movie_name}**\n\n<blockquote>already updated ✅</blockquote>")
     elif action == "notify_user_spelling_error":
-        await client.send_message(user_id, f"📜Hey {user}\n\n📦Your movie **{movie_name}**\n\n<blockquote>Spelling is wrong ✅\n\nGo to Google and check your spelling <a href='https://www.google.com/{movie_name}'>Google 🔍</blockquote></a>")
+        await client.send_message(user_id, f"📜Hey {user}\n\n📦Your movie **{movie_name}**\n\n<blockquote>Spelling is wrong ✅\n\nGo to Google and check your spelling <a href='https://www.google.com/search?q={movie_name_url}'>Google 🔍</blockquote></a></blockquote>", parse_mode="html")
     elif action == "notify_user_not_avail":
         await client.send_message(user_id, f"📜Hey {user}\n\n📦Your movie **{movie_name}**\n\n<blockquote>Not available 🥴</blockquote>")
    # elif action == "notify_user_req_rejected":
