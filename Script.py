@@ -4,10 +4,27 @@
 
 
 class script(object):
-    START_TXT = """<b><blockquote>Wʜᴀᴛ's ᴜᴘ ᴄɪɴᴇᴍᴀ ʟᴏᴠᴇʀ ! {} I'ᴍ ʏᴏᴜʀ ʙᴇʟᴏᴠᴇᴅ <a href=https://t.me/{}>{}</a>.\n\nFᴀsᴛᴇɴ ʏᴏᴜʀ sᴇᴀᴛʙᴇʟᴛs! I'ᴍ ʜᴇʀᴇ ᴛᴏ ʙʀɪɴɢ ᴍᴏᴠɪᴇs ᴛᴏ ʏᴏᴜʀ Tᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘ ғᴀsᴛᴇʀ ᴛʜᴀɴ ᴀ Hᴏʟʟʏᴡᴏᴏᴅ ᴄᴀʀ ᴄʜᴀsᴇ. Lᴇᴛ's ʀᴏʟʟ! 🚗💨>
+    START_TXT = """
     
-ɪᴍ ᴛʜᴇ ᴍᴏsᴛ ᴀᴅᴠᴀɴᴄᴇ ᴀɪ ᴘᴏᴡᴇʀᴅ 🤖 ᴀᴜᴛᴏ ғɪʟᴛᴇʀ ʙᴏᴛ..
-sᴇɴᴅ ᴍᴇ ᴀɴʏ ᴍᴏᴠɪᴇ ᴏʀ sᴇʀɪᴇs ɴᴀᴍᴇ ᴀɴᴅ sᴇᴇ ᴍʏ ᴍᴀɢɪᴄ..✨ғᴏʀ ᴍᴏʀᴇ ᴅᴇᴛᴀɪʟs ᴜsᴇ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ 🤞🏻</b>"""
+🤖✨ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛʜᴇ ғᴜᴛᴜʀᴇ ᴏғ ᴇɴᴛᴇʀᴛᴀɪɴᴍᴇɴᴛ! ✨🤖\n\n
+
+ɪ'ᴍ ᴛʜᴇ ᴍᴏsᴛ ᴀᴅᴠᴀɴᴄᴇᴅ ᴀɪ-ᴘᴏᴡᴇʀᴇᴅ ᴍᴏᴠɪᴇ & sᴇʀɪᴇs ʀᴇᴄᴏᴍᴍᴇɴᴅᴇʀ 🤩\n\n
+
+💡 *Just send me the name of any movie or series*\n
+& ᴡᴀᴛᴄʜ ᴍʏ ᴍᴀɢɪᴄ ʜᴀᴘᴘᴇɴ...✨\n\n
+
+🎬 Get details, trailers, cast, rating, streaming info & more!\n\n
+
+━━━━━━━━━━━━━ \n
+🔘 *Choose an Option Below to Get Started*\n
+📌 Trending Now  \n
+🎥 Search by Name  \n
+🎭 Genre-based Picks  \n
+⭐ IMDb Top Rated  \n
+━━━━━━━━━━━━━  \n\n
+
+👨‍💻 Bot created by *SUJAY* 😎  \n
+📢 Stay tuned for updates & surprises!</b>"""
 
     HELP_TXT = """<b>𝙃𝙚𝙮 𝙎𝙤𝙣𝙖 {}
 Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
