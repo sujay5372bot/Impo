@@ -397,7 +397,7 @@ async def filter_yearss_cb_handler(client: Client, query: CallbackQuery):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"📮 <span style='color:blue;'>{get_size(file.file_size)}</span> 🏹 <b>{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n</b>", callback_data=f'{pre}#{file.file_id}'
+                    text=f"📮 [{get_size(file.file_size)}] 🏹 {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -550,7 +550,7 @@ async def filter_episodes_cb_handler(client: Client, query: CallbackQuery):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"📮 <span style='color:blue;'>{get_size(file.file_size)}</span> 🏹 <b>{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n</b>", callback_data=f'{pre}#{file.file_id}'
+                    text=f"📮 [{get_size(file.file_size)}] 🏹 {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -705,7 +705,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"📮 <span style='color:blue;'>{get_size(file.file_size)}</span> 🏹 <b>{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n</b>", callback_data=f'{pre}#{file.file_id}'
+                    text=f"📮 [{get_size(file.file_size)}] 🏹 {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -889,7 +889,7 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"📮 <span style='color:blue;'>{get_size(file.file_size)}</span> 🏹 <b>{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n</b>", callback_data=f'{pre}#{file.file_id}'
+                    text=f"📮 [{get_size(file.file_size)}] 🏹 {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -1028,7 +1028,7 @@ async def filter_qualities_cb_handler(client: Client, query: CallbackQuery):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"📮 <span style='color:blue;'>{get_size(file.file_size)}</span> 🏹 <b>{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n</b>", callback_data=f'{pre}#{file.file_id}'
+                    text=f"📮 [{get_size(file.file_size)}] 🏹 {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -2859,7 +2859,7 @@ async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"📮 <span style='color:blue;'>{get_size(file.file_size)}</span> 🏹 <b>{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n</b>", callback_data=f'{pre}#{file.file_id}'
+                    text=f"📮 [{get_size(file.file_size)}] 🏹 {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -2951,7 +2951,7 @@ async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
         if not settings["button"]:
             cap+="<b>\n\n<u>🍿 Your Movie Files 👇</u></b>\n"
             for file in files:
-                cap += f"📮 <span style='color:blue;'>{get_size(file.file_size)}</span> 🏹 <b>{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n</b>"
+                cap += f"📮 [{get_size(file.file_size)}] 🏹 {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n"
     else:
         if settings["button"]:
             cap = f"<b>🅣ʜᴇ 🅡ᴇꜱᴜʟᴛꜱ 🅕ᴏʀ ⚝ {search}\n\n🅡ᴇǫᴜᴇ🅢ᴛᴇᴅ 🅑ʏ ⚝ {message.from_user.mention}\n\n</b>"
@@ -2959,7 +2959,7 @@ async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
             cap = f"<b>🅣ʜᴇ 🅡ᴇꜱᴜʟᴛꜱ 🅕ᴏʀ ⚝ {search}\n\n🅡ᴇǫᴜᴇ🅢ᴛᴇᴅ 🅑ʏ ⚝ {message.from_user.mention}\n\n</b>"
             cap+="<b><u>🍿 Your Movie Files 👇</u></b>\n\n"
             for file in files:
-                cap += f"📮 <span style='color:blue;'>{get_size(file.file_size)}</span> 🏹 <b>{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n</b>"
+                cap += f"📮 [{get_size(file.file_size)}] 🏹 {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n"
 
     if imdb and imdb.get('poster'):
         try:
