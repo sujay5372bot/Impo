@@ -164,7 +164,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"📮 {get_size(file.file_size)} 🏹 {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n", callback_data=f'{pre}#{file.file_id}'
+                    text=f"📮 <span style='color:blue;'>{get_size(file.file_size)}</span> 🏹 <b>{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n</b>", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
