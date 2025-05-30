@@ -6,25 +6,25 @@
 class script(object):
     START_TXT = """
     
-🤖✨ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛʜᴇ ғᴜᴛᴜʀᴇ ᴏғ ᴇɴᴛᴇʀᴛᴀɪɴᴍᴇɴᴛ! ✨🤖\n\n
+🤖✨ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛʜᴇ ғᴜᴛᴜʀᴇ ᴏғ ᴇɴᴛᴇʀᴛᴀɪɴᴍᴇɴᴛ! ✨🤖
 
-ɪ'ᴍ ᴛʜᴇ ᴍᴏsᴛ ᴀᴅᴠᴀɴᴄᴇᴅ ᴀɪ-ᴘᴏᴡᴇʀᴇᴅ ᴍᴏᴠɪᴇ & sᴇʀɪᴇs ʀᴇᴄᴏᴍᴍᴇɴᴅᴇʀ 🤩\n\n
+ɪ'ᴍ ᴛʜᴇ ᴍᴏsᴛ ᴀᴅᴠᴀɴᴄᴇᴅ ᴀɪ-ᴘᴏᴡᴇʀᴇᴅ ᴍᴏᴠɪᴇ & sᴇʀɪᴇs ʀᴇᴄᴏᴍᴍᴇɴᴅᴇʀ 🤩
 
-💡 *Just send me the name of any movie or series*\n
-& ᴡᴀᴛᴄʜ ᴍʏ ᴍᴀɢɪᴄ ʜᴀᴘᴘᴇɴ...✨\n\n
+💡 Just send me the name of any movie or series
+& ᴡᴀᴛᴄʜ ᴍʏ ᴍᴀɢɪᴄ ʜᴀᴘᴘᴇɴ...✨
 
-🎬 Get details, trailers, cast, rating, streaming info & more!\n\n
+🎬 Get details, trailers, cast, rating, streaming info & more!
 
-━━━━━━━━━━━━━ \n
-🔘 *Choose an Option Below to Get Started*\n
-📌 Trending Now  \n
-🎥 Search by Name  \n
-🎭 Genre-based Picks  \n
-⭐ IMDb Top Rated  \n
-━━━━━━━━━━━━━  \n\n
+━━━━━━━━━━━━━
+🔘 <b>Choose an Option Below to Get Started</b>
+📌 Trending Now
+🎥 Search by Name
+🎭 Genre-based Picks
+⭐ IMDb Top Rated
+━━━━━━━━━━━━━
 
-👨‍💻 Bot created by *SUJAY* 😎  \n
-📢 Stay tuned for updates & surprises!</b>"""
+👨‍💻 Bot created by <b>SUJAY</b> 😎
+📢 Stay tuned for updates & surprises!"""
 
     HELP_TXT = """<b>𝙃𝙚𝙮 𝙎𝙤𝙣𝙖 {}
 Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
