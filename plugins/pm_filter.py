@@ -2954,9 +2954,9 @@ async def auto_filter(client, name, msg, reply_msg, ai_search, spoll=False):
                 cap += f"📮 {get_size(file.file_size)} 🏹 {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n"
     else:
         if settings["button"]:
-            cap = f"<b>Tʜᴇ Rᴇꜱᴜʟᴛꜱ Fᴏʀ ☞ {search}\n\nRᴇǫᴜᴇsᴛᴇᴅ Bʏ ☞ {message.from_user.mention}\n\n</b>"
+            cap = f"<b>🅣ʜᴇ 🅡ᴇꜱᴜʟᴛꜱ 🅕ᴏʀ ⚝ {search}\n\n🅡ᴇǫᴜᴇ🅢ᴛᴇᴅ 🅑ʏ ⚝ {message.from_user.mention}\n\n</b>"
         else:
-            cap = f"<b>Tʜᴇ Rᴇꜱᴜʟᴛꜱ Fᴏʀ ☞ {search}\n\nRᴇǫᴜᴇsᴛᴇᴅ Bʏ ☞ {message.from_user.mention}\n\n</b>"
+            cap = f"<b>🅣ʜᴇ 🅡ᴇꜱᴜʟᴛꜱ 🅕ᴏʀ ⚝ {search}\n\n🅡ᴇǫᴜᴇ🅢ᴛᴇᴅ 🅑ʏ ⚝ {message.from_user.mention}\n\n</b>"
             cap+="<b><u>🍿 Your Movie Files 👇</u></b>\n\n"
             for file in files:
                 cap += f"📮 {get_size(file.file_size)} 🏹 {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n"
