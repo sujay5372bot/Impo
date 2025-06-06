@@ -45,7 +45,11 @@ class temp(object):
     SHORT = {}
     SETTINGS = {}
     IMDB_CAP = {}
-
+    B_LINK = None
+    FILES_ID = {}
+    USERS_CANCEL = False
+    GROUPS_CANCEL = False    
+    CHAT = {}
 
 async def pub_is_subscribed(bot, query, channel):
     btn = []
